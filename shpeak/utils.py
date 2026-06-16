@@ -4,23 +4,19 @@ from pathlib import Path
 from dotenv import load_dotenv
 import getpass
 from rich.console import Console
-
+from importlib.resources import files
 console = Console()
 
 CONFIG_DIR = Path.home() / ".config" / "shpeak"
 CONFIG_FILE = CONFIG_DIR / "config.env"
 
-CMD_COMMANDS_FILE = Path(__file__).parent.parent / "data" / "cmd_commands.json"
-PS_COMMANDS_FILE = Path(__file__).parent.parent / "data" / "powershell_commands.json"
-
-
 def load_cmds():
-    with open(CMD_COMMANDS_FILE, "r") as f:
+    with files("shpeak.data").joinpath("cmd_commands.json").open("r", encoding="utf-8") as f:
         commands = json.load(f)
     return commands
 
 def load_ps_cmds():
-    with open(PS_COMMANDS_FILE, "r") as f:
+    with files("shpeak.data").joinpath("powershell_commands.json").open("r", encoding="utf-8") as f:
         commands = json.load(f)
     return commands
 
