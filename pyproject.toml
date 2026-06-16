@@ -1,0 +1,19 @@
+[project]
+name = "shpeak"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "google-genai>=2.8.0",
+    "pyperclip>=1.11.0",
+    "python-dotenv>=1.2.2",
+    "rich>=15.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+shpeak = "shpeak.cli:main"

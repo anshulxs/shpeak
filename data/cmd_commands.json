@@ -1,0 +1,1470 @@
+{
+    "cd": {
+        "cmdlet": "`cd`",
+        "description": "Displays the name of the current directory or changes the current directory. If used with only a drive letter (for example, `cd C:`), **cd** displays the names of the current directory in the specified drive. If used without parameters, **cd** displays the current drive and directory.",
+        "parameters": "cd [/d] [<drive>:][<path>]\ncd [..]\nchdir [/d] [<drive>:][<path>]\nchdir [..]",
+        "examples": [
+            "cd\\",
+            "cd [<drive>:[<directory>]]",
+            "cd [<drive>:]"
+        ]
+    },
+    "chdir": {
+        "cmdlet": "`chdir`",
+        "description": "Displays the name of the current directory or changes the current directory. If used with only a drive letter (for example, `chdir C:`), **chdir** displays the names of the current directory in the specified drive. If used without parameters, **chdir** displays the current drive and directory.",
+        "parameters": "",
+        "examples": []
+    },
+    "dir": {
+        "cmdlet": "`dir`",
+        "description": "Displays a list of a directory's files and subdirectories. If used without parameters, this command displays the disk's volume label and serial number, followed by a list of directories and files on the disk (including their names and the date and time each was last modified). For files, this command displays the name extension and the size in bytes. This command also displays the total number of files and directories listed, their cumulative size, and the free space (in bytes) remaining on the disk.",
+        "parameters": "dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>]][/o[[:]<sortorder>]] [/t[[:]<timefield>]] [/s] [/b] [/l] [/n] [/x] [/c] [/4] [/r]\n\nC:\\test>dir /x\n  Volume in drive C has no label.\n  Volume Serial Number is B86A-EF32\n\n  Directory of C:\\test\n\n  11/30/2004  01:40 PM <DIR>  .\n  11/30/2004  01:40 PM <DIR> ..\n  11/30/2004  11:05 AM 0 T97B4~1.TXT t.txt2\n  11/30/2004  01:16 PM 0 t97.txt",
+        "examples": [
+            "dir /s/w/o/p",
+            "dir /s/w/o/p/a:-d",
+            "dir > prn",
+            "dir > \\records\\dir.doc",
+            "File creation error",
+            "dir c:\\*.txt /w/o/s/p"
+        ]
+    },
+    "tree": {
+        "cmdlet": "`tree`",
+        "description": "Displays the directory structure of a path or of the disk in a drive graphically. The structure displayed by this command depends upon the parameters that you specify at the command prompt. If you don't specify a drive or path, this command displays the tree structure beginning with the current directory of the current drive.",
+        "parameters": "tree [<drive>:][<path>] [/f] [/a]",
+        "examples": [
+            "tree \\",
+            "tree c:\\ /f | more",
+            "tree c:\\ /f > <driveletter>:\\<filepath>\\filename.txt"
+        ]
+    },
+    "pushd": {
+        "cmdlet": "`pushd`",
+        "description": "Stores the current directory for use by the **popd** command, and then changes to the specified directory.",
+        "parameters": "pushd [<path>]\n\n@echo off\nrem This batch file deletes all .txt files in a specified directory\npushd %1\ndel *.txt\npopd\ncls\necho All text files deleted in the %1 directory",
+        "examples": [
+            "@echo off\nrem This batch file deletes all .txt files in a specified directory\npushd %1\ndel *.txt\npopd\ncls\necho All text files deleted in the %1 directory"
+        ]
+    },
+    "popd": {
+        "cmdlet": "`popd`",
+        "description": "The **popd** command changes the current directory to the directory that was most recently stored by the **pushd** command.",
+        "parameters": "popd\n\n@echo off\nrem This batch file deletes all .txt files in a specified directory\npushd %1\ndel *.txt\npopd\ncls\necho All text files deleted in the %1 directory",
+        "examples": [
+            "@echo off\nrem This batch file deletes all .txt files in a specified directory\npushd %1\ndel *.txt\npopd\ncls\necho All text files deleted in the %1 directory"
+        ]
+    },
+    "subst": {
+        "cmdlet": "`subst`",
+        "description": "Associates a path with a drive letter. If used without parameters, **subst** displays the names of the virtual drives in effect.",
+        "parameters": "subst [<drive1>: [<drive2>:]<path>]\nsubst <drive1>: /d",
+        "examples": [
+            "subst z: b:\\user\\betty\\forms",
+            "z:"
+        ]
+    },
+    "md": {
+        "cmdlet": "`md`",
+        "description": "Creates a directory or subdirectory. Command extensions, which are enabled by default, allow you to use a single **md** command to create intermediate directories in a specified path.",
+        "parameters": "md [<drive>:]<path>\n\nmd Directory1\n\nmd \\Taxes\\Property\\Current\n\nmd \\Taxes\nmd \\Taxes\\Property\nmd \\Taxes\\Property\\Current",
+        "examples": [
+            "md Directory1",
+            "md \\Taxes\\Property\\Current",
+            "md \\Taxes\nmd \\Taxes\\Property\nmd \\Taxes\\Property\\Current"
+        ]
+    },
+    "mkdir": {
+        "cmdlet": "`mkdir`",
+        "description": "Creates a directory or subdirectory. Command extensions, which are enabled by default, allow you to use a single **mkdir** command to create intermediate directories in a specified path.",
+        "parameters": "mkdir [<drive>:]<path>\n\nmkdir Directory1\n\nmkdir \\Taxes\\Property\\Current\n\nmkdir \\Taxes\nmkdir \\Taxes\\Property\nmkdir \\Taxes\\Property\\Current",
+        "examples": [
+            "mkdir Directory1",
+            "mkdir \\Taxes\\Property\\Current",
+            "mkdir \\Taxes\nmkdir \\Taxes\\Property\nmkdir \\Taxes\\Property\\Current"
+        ]
+    },
+    "copy": {
+        "cmdlet": "`copy`",
+        "description": "Copies one or more files from one location to another.",
+        "parameters": "copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <source> [/a | /b] [+<source> [/a | /b] [+ ...]] [<destination> [/a | /b]]\n\nFile cannot be copied onto itself\n    0 File(s) copied\n\ncopy /b <source> +,,",
+        "examples": [
+            "copy memo.doc letter.doc /a",
+            "copy robin.typ c:\\birds",
+            "copy mar89.rpt + apr89.rpt + may89.rpt Report",
+            "copy report + mar89.rpt + apr89.rpt + may89.rpt",
+            "copy *.txt Combined.doc",
+            "copy /b *.exe Combined.exe",
+            "copy *.txt + *.ref *.doc",
+            "copy *.txt + *.ref Combined.doc"
+        ]
+    },
+    "xcopy": {
+        "cmdlet": "`xcopy`",
+        "description": "Copies files and directories, including subdirectories.",
+        "parameters": "xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-DD-YYYY]] [/u] [/i] [/s [/e]] [/t] [/k] [/r] [/h] [{/a | /m}] [/n] [/o] [/x] [/exclude:FileName1[+[FileName2]][+[FileName3]]] [{/y | /-y}] [/z] [/b] [/j] [/compress]",
+        "examples": [
+            "xcopy a: b: /s /e",
+            "xcopy a: b: /s /e /h",
+            "xcopy \\rawdata \\reports /d:12-29-1993",
+            "xcopy \\rawdata \\reports /u",
+            "xcopy \\rawdata \\reports /d:12-29-1993 /l > xcopy.out",
+            "xcopy \\customer h:\\public\\address /s /e /k /p",
+            "xcopy \\customer h:\\public\\address /s /e /k /p /i",
+            "@echo off\nrem COPYIT.BAT transfers all files in all subdirectories of\nrem the source drive or directory (%1) to the destination\nrem drive or directory (%2)\nxcopy %1 %2 /s /e\nif errorlevel 4 goto lowmemory\nif errorlevel 2 goto abort\nif errorlevel 0 goto exit\n:lowmemory\necho Insufficient memory to copy files or\necho invalid drive or command-line syntax.\ngoto exit\n:abort\necho You pressed CTRL+C to end the copy operation.\ngoto exit\n:exit",
+            "copyit c:\\prgmcode b:",
+            "xcopy .\\toc*.yml ..\\..\\Copy-To\\ /S /Y\n\nrem Output example.\nrem  .\\d1\\toc.yml\nrem  .\\d1\\d12\\toc.yml\nrem  .\\d2\\toc.yml\nrem  3 File(s) copied"
+        ]
+    },
+    "robocopy": {
+        "cmdlet": "`robocopy`",
+        "description": "Copies file data from one location to another.",
+        "parameters": "robocopy <source> <destination> [<file>[ ...]] [<options>]\n\nrobocopy c:\\reports \"\\\\marketing\\videos\" yearly-report.mov /mt /z",
+        "examples": [
+            "robocopy C:\\Users\\Admin\\Records D:\\Backup /E /ZB /LOG:C:\\Logs\\Backup.log",
+            "robocopy C:\\Users\\Admin\\Records D:\\Backup /MIR /R:2 /W:5 /LOG:C:\\Logs\\Backup.log",
+            "robocopy C:\\Users\\Admin\\Records D:\\Backup /S /E /COPY:DAT /MT:16 /LOG:C:\\Logs\\Backup.log",
+            "robocopy C:\\Users\\Admin\\Records D:\\Backup /S /MAXAGE:7 /MOV /LOG:C:\\Logs\\Backup.log",
+            "robocopy C:\\Users\\Admin\\Records D:\\Backup /ETA /PURGE /LOG:C:\\Logs\\Backup.log",
+            "robocopy C:\\Records D:\\Backup /iorate:1m",
+            "robocopy C:\\Source C:\\Destination /XC /XN /XO"
+        ]
+    },
+    "move": {
+        "cmdlet": "`move`",
+        "description": "Moves one or more files from one directory to another directory.",
+        "parameters": "move [{/y|-y}] [<source>] [<target>]\n\nmove \\data\\*.xls \\second_q\\reports\\",
+        "examples": [
+            "move \\data\\*.xls \\second_q\\reports\\"
+        ]
+    },
+    "ren": {
+        "cmdlet": "`ren`",
+        "description": "Renames files or directories.",
+        "parameters": "ren [<drive>:][<path>]<filename1> <filename2>\n\nren *.txt *.doc\n\nren chap10 part10",
+        "examples": [
+            "ren *.txt *.doc",
+            "ren chap10 part10"
+        ]
+    },
+    "rename": {
+        "cmdlet": "`rename`",
+        "description": "Renames files or directories.",
+        "parameters": "rename [<drive>:][<path>]<filename1> <filename2>\n\nrename *.txt *.doc\n\nrename chap10 part10",
+        "examples": [
+            "rename *.txt *.doc",
+            "rename chap10 part10"
+        ]
+    },
+    "mklink": {
+        "cmdlet": "`mklink`",
+        "description": "Creates a directory or file symbolic or hard link.",
+        "parameters": "mklink [[/d] | [/h] | [/j]] <link> <target>\n\nmklink /d \\MyFolder \\Users\\User1\\Documents\nmklink /h \\MyFile.file \\User1\\Documents\\example.file\nrd \\MyFolder\ndel \\MyFile.file",
+        "examples": [
+            "mklink /d \\MyFolder \\Users\\User1\\Documents\nmklink /h \\MyFile.file \\User1\\Documents\\example.file\nrd \\MyFolder\ndel \\MyFile.file"
+        ]
+    },
+    "replace": {
+        "cmdlet": "`replace`",
+        "description": "Replace existing files in a directory. If used with the **/a** option, this command adds new files to a directory instead of replacing existing files.",
+        "parameters": "replace [<drive1>:][<path1>]<filename> [<drive2>:][<path2>] [/a] [/p] [/r] [/w]\nreplace [<drive1>:][<path1>]<filename> [<drive2>:][<path2>] [/p] [/r] [/s] [/w] [/u]\n\nnnn files added\n  nnn files replaced\n  no file added\n  no file replaced",
+        "examples": [
+            "replace a:\\phones.cli c:\\ /s"
+        ]
+    },
+    "forfiles": {
+        "cmdlet": "`forfiles`",
+        "description": "Selects and runs a command on a file or set of files. This command is most commonly used in batch files.",
+        "parameters": "forfiles [/P pathname] [/M searchmask] [/S] [/C command] [/D [+ | -] [{<date> | <days>}]]\n\nforfiles /P c:\\ /S /M *.bat /C \"cmd /c echo @file is a batch file\"\n\nforfiles /P c:\\ /S /M * /C \"cmd /c if @isdir==TRUE echo @file is a directory\"\n\nforfiles /S /M *.* /D -365 /C \"cmd /c echo @file is at least one year old.\"\n\nforfiles /S /M *.* /D -01/01/2007 /C \"cmd /c echo @file is outdated.\"\n\nforfiles /S /M *.* /C \"cmd /c echo The extension of @file is 0x09@ext\"",
+        "examples": [
+            "forfiles /P c:\\ /S /M *.bat /C \"cmd /c echo @file is a batch file\"",
+            "forfiles /P c:\\ /S /M * /C \"cmd /c if @isdir==TRUE echo @file is a directory\"",
+            "forfiles /S /M *.* /D -365 /C \"cmd /c echo @file is at least one year old.\"",
+            "forfiles /S /M *.* /D -01/01/2007 /C \"cmd /c echo @file is outdated.\"",
+            "forfiles /S /M *.* /C \"cmd /c echo The extension of @file is 0x09@ext\""
+        ]
+    },
+    "del": {
+        "cmdlet": "`del`",
+        "description": "Deletes one or more files. This command performs the same actions as the **erase** command.",
+        "parameters": "del [/p] [/f] [/s] [/q] [/a[:]<attributes>] <names>\nerase [/p] [/f] [/s] [/q] [/a[:]<attributes>] <names>\n\ndel \\work\n\ndel *.*",
+        "examples": [
+            "del c:\\test\ndel c:\\test\\*.*",
+            "del \"c:\\test folder\\\"\ndel \"c:\\test folder\\*.*\"",
+            "del *.bat",
+            "del /a:r *.*"
+        ]
+    },
+    "erase": {
+        "cmdlet": "`erase`",
+        "description": "Deletes one or more files. If you use **erase** to delete a file from your disk, you can't retrieve it.",
+        "parameters": "erase [/p] [/f] [/s] [/q] [/a[:]<attributes>] <names>\ndel [/p] [/f] [/s] [/q] [/a[:]<attributes>] <names>\n\nerase \\work\n\nerase *.*\n\nerase c:\\test\nerase c:\\test\\*.*\n\nerase *.bat\n\nerase /a:r *.*",
+        "examples": [
+            "erase c:\\test\nerase c:\\test\\*.*",
+            "erase *.bat",
+            "erase /a:r *.*"
+        ]
+    },
+    "rd": {
+        "cmdlet": "`rd`",
+        "description": "Deletes a directory.",
+        "parameters": "rd [<drive>:]<path> [/s [/q]]\n\ncd ..\n\nrd /s test\n\nrd /s /q test",
+        "examples": [
+            "cd ..",
+            "rd /s test",
+            "rd /s /q test"
+        ]
+    },
+    "rmdir": {
+        "cmdlet": "`rmdir`",
+        "description": "Deletes a directory.",
+        "parameters": "rmdir [<drive>:]<path> [/s [/q]]",
+        "examples": [
+            "cd ..",
+            "rmdir /s test",
+            "rmdir /s /q test"
+        ]
+    },
+    "cls": {
+        "cmdlet": "`cls`",
+        "description": "Clears the Command Prompt window.",
+        "parameters": "cls",
+        "examples": [
+            "cls"
+        ]
+    },
+    "type": {
+        "cmdlet": "`type`",
+        "description": "In the Windows Command shell, **type** is a built in command which displays the contents of a text file. Use the **type** command to view a text file without modifying it.",
+        "parameters": "type [<drive>:][<path>]<filename>",
+        "examples": [
+            "type holiday.mar",
+            "type holiday.mar | more",
+            "type nul > holiday.mar"
+        ]
+    },
+    "more": {
+        "cmdlet": "`more`",
+        "description": "Displays one screen of output at a time.",
+        "parameters": "<command> | more [/c] [/p] [/s] [/t<n>] [+<n>]\nmore [[/c] [/p] [/s] [/t<n>] [+<n>]] < [<drive>:][<path>]<filename>\nmore [/c] [/p] [/s] [/t<n>] [+<n>] [<files>]\n\nmore < clients.new\ntype clients.new | more\n\nmore /c /s < clients.new\ntype clients.new | more /c /s\n\nmore =\n\nmore p\n\nmore s",
+        "examples": [
+            "more < clients.new\ntype clients.new | more",
+            "more /c /s < clients.new\ntype clients.new | more /c /s",
+            "more =",
+            "more p",
+            "more s"
+        ]
+    },
+    "find": {
+        "cmdlet": "`find`",
+        "description": "Searches for a string of text in a file or files, and displays lines of text that contain the specified string.",
+        "parameters": "find [/v] [/c] [/n] [/i] [/off[line]] <\"string\"> [[<drive>:][<path>]<filename>[...]]\n\nfind \"pencil sharpener\" pencil.md\n\nfind \"\"\"The scientists labeled their paper for discussion only. It is not a final report.\"\"\" < report.txt\n\nfind /i \"PROMPT\" *.bat\n\ndir c:\\temp /s /b | find \"CPU\"\n\ntasklist | find /v /i \"agent\"\n\nsc query  Winmgmt | find \"RUNNING\" >nul 2>&1 && (echo service is started) || (echo service is stopped)",
+        "examples": [
+            "find \"pencil sharpener\" pencil.md",
+            "find \"\"\"The scientists labeled their paper for discussion only. It is not a final report.\"\"\" < report.txt",
+            "find /i \"PROMPT\" *.bat",
+            "dir c:\\temp /s /b | find \"CPU\"",
+            "tasklist | find /v /i \"agent\"",
+            "sc query  Winmgmt | find \"RUNNING\" >nul 2>&1 && (echo service is started) || (echo service is stopped)"
+        ]
+    },
+    "findstr": {
+        "cmdlet": "`findstr`",
+        "description": "Searches for patterns of text in files.",
+        "parameters": "findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<file>] [/c:<string>] [/g:<file>] [/d:<dirlist>] [/a:<colorattribute>] [/off[line]] <strings> [<drive>:][<path>]<filename>[ ...]\n\nfindstr hello there x.y\n\nfindstr /c:\"hello there\" x.y\n\nfindstr Windows proposal.txt\n\nfindstr /s /i Windows *.*\n\nfindstr /b /n /r /c:^ *FOR *.bas\n\nfindstr /g:stringlist.txt /f:filelist.txt > results.out\n\nfindstr /s /i /m \\<computer\\> *.*\n\nfindstr /s /i /m \\<comp.* *.*",
+        "examples": [
+            "findstr hello there x.y",
+            "findstr /c:\"hello there\" x.y",
+            "findstr Windows proposal.txt",
+            "findstr /s /i Windows *.*",
+            "findstr /b /n /r /c:^ *FOR *.bas",
+            "findstr /g:stringlist.txt /f:filelist.txt > results.out",
+            "findstr /s /i /m \\<computer\\> *.*",
+            "findstr /s /i /m \\<comp.* *.*"
+        ]
+    },
+    "sort": {
+        "cmdlet": "`sort`",
+        "description": "Reads input, sorts data, and writes the results to the screen, to a file, or to another device.",
+        "parameters": "sort [/r] [/+<N>] [/m <kilobytes>] [/l <locale>] [/rec <characters>] [[<drive1>:][<path1>]<filename1>] [/t [<drive2>:][<path2>]] [/o [<drive3>:][<path3>]<filename3>]",
+        "examples": [
+            "sort /r expenses.txt",
+            "find Jones maillist.txt | sort",
+            "sort"
+        ]
+    },
+    "clip": {
+        "cmdlet": "`clip`",
+        "description": "Redirects the command output from the command line to the Windows clipboard. You can use this command to copy data directly into any application that can receive text from the Clipboard. You can also paste this text output into other programs.",
+        "parameters": "<command> | clip\nclip < <filename>",
+        "examples": [
+            "dir | clip",
+            "awk -f generic.awk input.txt | clip",
+            "clip < readme.txt"
+        ]
+    },
+    "comp": {
+        "cmdlet": "`comp`",
+        "description": "Compares the contents of two files or sets of files byte-by-byte. These files can be stored on the same drive or on different drives, and in the same directory or in different directories. When this command compares files, it displays their location and file names. If used without parameters, **comp** prompts you to enter the files to compare.",
+        "parameters": "comp [<data1>] [<data2>] [/d] [/a] [/l] [/n=<number>] [/c]",
+        "examples": [
+            "comp c:\\reports \\\\sales\\backup\\april",
+            "comp \\invoice\\*.txt \\invoice\\backup\\*.txt /n=10 /d"
+        ]
+    },
+    "fc": {
+        "cmdlet": "`fc`",
+        "description": "Compares two files or sets of files and displays the differences between them.",
+        "parameters": "fc /a [/c] [/l] [/lb<n>] [/n] [/off[line]] [/t] [/u] [/w] [/<nnnn>] [<drive1>:][<path1>]<filename1> [<drive2>:][<path2>]<filename2>\nfc /b [<drive1:>][<path1>]<filename1> [<drive2:>][<path2>]<filename2>\n\nfc /a monthly.rpt sales.rpt\n\nfc /b profits.bat earnings.bat\n\n00000002: 72 43\n00000004: 65 3A\n0000000E: 56 92\n000005E8: 00 6E\nFC: earnings.bat longer than profits.bat\n\nComparing files profits.bat and earnings.bat\nFC: no differences encountered\n\nfc *.bat new.bat\n\nfc c:new.bat d:*.bat\n\nfc c:*.bat d:*.bat",
+        "examples": [
+            "fc /a monthly.rpt sales.rpt",
+            "fc /b profits.bat earnings.bat",
+            "00000002: 72 43\n00000004: 65 3A\n0000000E: 56 92\n000005E8: 00 6E\nFC: earnings.bat longer than profits.bat",
+            "Comparing files profits.bat and earnings.bat\nFC: no differences encountered",
+            "fc *.bat new.bat",
+            "fc c:new.bat d:*.bat",
+            "fc c:*.bat d:*.bat"
+        ]
+    },
+    "verify": {
+        "cmdlet": "`verify`",
+        "description": "Tells the Command Prompt tool (cmd.exe) whether to verify your files are written correctly to a disk.",
+        "parameters": "verify [on | off]",
+        "examples": [
+            "verify",
+            "verify on"
+        ]
+    },
+    "attrib": {
+        "cmdlet": "`attrib`",
+        "description": "Displays, sets, or removes attributes assigned to files or directories. If used without parameters, **attrib** displays attributes of all files in the current directory.",
+        "parameters": "attrib [{+|-}r] [{+|-}a] [{+|-}s] [{+|-}h] [{+|-}o] [{+|-}i] [{+|-}x] [{+|-}p] [{+|-}u] [{+|-}b] [<drive>:][<path>][<filename>] [/s [/d] [/l]]",
+        "examples": [
+            "attrib news86",
+            "attrib +r report.txt",
+            "attrib -r b:\\public\\*.* /s",
+            "attrib +a a:*.* & attrib -a a:*.bak"
+        ]
+    },
+    "icacls": {
+        "cmdlet": "`icacls`",
+        "description": "Displays or modifies discretionary access control lists (DACLs) on specified files and applies stored DACLs to files in specified directories.",
+        "parameters": "icacls name [/save aclfile] [/setowner user] [/findsid Sid] [/verify] [/reset] [/T] [/C] [/L] [/Q]\nicacls name [/grant[:r] Sid:perm[...]] [/deny Sid:perm [...]] [/remove[:g|:d]] Sid[...]]] [/setintegritylevel Level:policy[...]] [/T] [/C] [/L] [/Q]\nicacls directory [/substitute SidOld SidNew [...]] [/restore aclfile] [/C] [/L] [/Q]",
+        "examples": [
+            "icacls c:\\windows\\* /save aclfile /t",
+            "icacls c:\\windows\\ /restore aclfile",
+            "icacls test1 /grant User1:(d,wdac)",
+            "icacls TestFile /grant *S-1-1-0:(d,wdac)",
+            "icacls \"myDirectory\" /setintegritylevel (CI)(OI)H"
+        ]
+    },
+    "cacls": {
+        "cmdlet": "`cacls`",
+        "description": "Displays or modifies discretionary access control lists (DACL) on specified files.",
+        "parameters": "cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user [...]] [/p user:<perm> [...]] [/d user [...]]",
+        "examples": []
+    },
+    "takeown": {
+        "cmdlet": "`takeown`",
+        "description": "Enables an administrator to recover access to a file that previously was denied, by making the administrator the owner of the file. This command is typically used on batch files.",
+        "parameters": "takeown [/s <computer> [/u [<domain>\\]<username> [/p [<password>]]]] /f <filename> [/a] [/r [/d {Y|N}]]",
+        "examples": [
+            "takeown /f lostfile"
+        ]
+    },
+    "cipher": {
+        "cmdlet": "`cipher`",
+        "description": "Displays or alters the encryption of directories and files on NTFS volumes. If used without parameters, **cipher** displays the encryption state of the current directory and any files it contains.",
+        "parameters": "cipher [/e | /d | /c] [/s:<directory>] [/b] [/h] [pathname [...]]\ncipher /k\ncipher /r:<filename> [/smartcard]\ncipher /u [/n]\ncipher /w:<directory>\ncipher /x[:efsfile] [filename]\ncipher /y\ncipher /adduser [/certhash:<hash> | /certfile:<filename>] [/s:directory] [/b] [/h] [pathname [...]]\ncipher /removeuser /certhash:<hash> [/s:<directory>] [/b] [/h] [<pathname> [...]]\ncipher /rekey [pathname [...]]",
+        "examples": [
+            "cipher",
+            "Listing C:\\Users\\MainUser\\Documents\\\nNew files added to this directory will not be encrypted.\nU Private\nU hello.doc\nU hello.txt",
+            "cipher /e private",
+            "Encrypting files in C:\\Users\\MainUser\\Documents\\\nPrivate             [OK]\n1 file(s) [or directorie(s)] within 1 directorie(s) were encrypted.",
+            "Listing C:\\Users\\MainUser\\Documents\\\nNew files added to this directory will not be encrypted.\nE Private\nU hello.doc\nU hello.txt"
+        ]
+    },
+    "compact": {
+        "cmdlet": "`compact`",
+        "description": "Displays or alters the compression of files or directories on NTFS partitions. If used without parameters, **compact** displays the compression state of the current directory and any files it contains.",
+        "parameters": "compact [/C | /U] [/S[:dir]] [/A] [/I] [/F] [/Q] [/EXE[:algorithm]] [/CompactOs[:option] [/windir:dir]] [filename [...]]",
+        "examples": [
+            "compact /c /s",
+            "compact /c /s *.*",
+            "compact /c /i /s:\\",
+            "compact /c /s:\\tmp *.bmp",
+            "compact /c /f zebra.bmp",
+            "compact /u c:\\tmp"
+        ]
+    },
+    "chkdsk": {
+        "cmdlet": "`chkdsk`",
+        "description": "Checks the file system and file system metadata of a volume for logical and physical errors. If used without parameters, **chkdsk** displays only the status of the volume and doesn't fix any errors. If used with the **/f**, **/r**, **/x**, or **/b** parameters, it fixes errors on the volume.",
+        "parameters": "chkdsk [<volume>[[<path>]<filename>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<size>]] [/b] [/scan] [/forceofflinefix] [/perf] [/spotfix] [/sdcleanup] [/offlinescanandfix] [/freeorphanedchains] [/markclean] [/?]",
+        "examples": [
+            "chkdsk d: /f",
+            "chkdsk *.*"
+        ]
+    },
+    "chkntfs": {
+        "cmdlet": "`chkntfs`",
+        "description": "Displays or modifies automatic disk checking when the computer is started. If used without options, **chkntfs** displays the file system of the specified volume. If automatic file checking is scheduled to run, **chkntfs** displays whether the specified volume is dirty or is scheduled to be checked the next time the computer is started.",
+        "parameters": "chkntfs <volume> [...]\nchkntfs [/d]\nchkntfs [/t[:<time>]]\nchkntfs [/x <volume> [...]]\nchkntfs [/c <volume> [...]]",
+        "examples": [
+            "chkntfs c:",
+            "chkntfs /t",
+            "chkntfs /t:30",
+            "chkntfs /x d: e:",
+            "chkntfs /d\nchkntfs /x c: d: e:\nchkntfs /c d:"
+        ]
+    },
+    "diskpart": {
+        "cmdlet": "`diskpart`",
+        "description": "The diskpart command interpreter helps you manage your computer's drives (disks, partitions, volumes, or virtual hard disks).",
+        "parameters": "diskpart <parameter>",
+        "examples": [
+            "list disk",
+            "select disk 1",
+            "create partition primary",
+            "format fs=ntfs label=Backup quick"
+        ]
+    },
+    "format": {
+        "cmdlet": "`format`",
+        "description": "The **format** command formats a drive to accept Windows files. You must be a member of the Administrators group to format a hard drive.",
+        "parameters": "format volume [/FS:file-system] [/V:label] [/Q] [/L[:state]] [/A:size] [/C] [/I:state] [/X] [/P:passes] [/S:state]\nformat volume [/V:label] [/Q] [/F:size] [/P:passes]\nformat volume [/V:label] [/Q] [/T:tracks /N:sectors] [/P:passes]\nformat volume [/V:label] [/Q] [/P:passes]\nformat volume [/Q]",
+        "examples": [
+            "format a:",
+            "format a: /q",
+            "format a: /v:DATA"
+        ]
+    },
+    "label": {
+        "cmdlet": "`label`",
+        "description": "Creates, changes, or deletes the volume label (that is, the name) of a disk. If used without parameters, the **label** command changes the current volume label or deletes the existing label.",
+        "parameters": "label [/mp] [<volume>] [<label>]",
+        "examples": [
+            "label a:sales-july",
+            "label",
+            "Volume in drive C: is Main Disk\n   Volume Serial Number is 6789-ABCD\n   Volume label (32 characters, ENTER for none)?",
+            "Delete current volume label (Y/N)?"
+        ]
+    },
+    "vol": {
+        "cmdlet": "`vol`",
+        "description": "Displays the disk volume label and serial number, if they exist.  If used without parameters, **vol** displays information for the current drive.",
+        "parameters": "vol [<drive>:]",
+        "examples": []
+    },
+    "defrag": {
+        "cmdlet": "`defrag`",
+        "description": "Locates and consolidates fragmented files on local volumes to improve system performance.",
+        "parameters": "defrag <volumes> | /c | /e <volumes>    [/h] [/m [n]| [/u] [v]]\ndefrag <volumes> | /c | /e <volumes> /a [/h] [/m [n]| [/u] [v]]\ndefrag <volumes> | /c | /e <volumes> /x [/h] [/m [n]| [/u] [v]]\ndefrag <volume> [<parameters>]",
+        "examples": [
+            "defrag c: /u /v",
+            "defrag c: d: /m",
+            "defrag c: mountpoint /a /u",
+            "defrag /c /h /v"
+        ]
+    },
+    "fsutil": {
+        "cmdlet": "`fsutil`",
+        "description": "Performs tasks related to FAT and NTFS file systems, such as managing reparse points, handling sparse files, or dismounting a volume. When used without parameters, `fsutil` displays a list of supported subcommands.",
+        "parameters": "",
+        "examples": []
+    },
+    "mountvol": {
+        "cmdlet": "`mountvol`",
+        "description": "Creates, deletes, or lists a volume mount point. You can also link volumes without requiring a drive letter.",
+        "parameters": "mountvol [<drive>:]<path volumename>\nmountvol [<drive>:]<path> /d\nmountvol [<drive>:]<path> /l\nmountvol [<drive>:]<path> /p\nmountvol /r\nmountvol [/n|/e]\nmountvol <drive>: /s",
+        "examples": [
+            "mountvol \\sysmount \\\\?\\volume\\{2eca078d-5cbc-43d3-aff8-7e8511f60d0e}\\"
+        ]
+    },
+    "diskcomp": {
+        "cmdlet": "`diskcomp`",
+        "description": "Compares the contents of two floppy disks. If used without parameters, **diskcomp** uses the current drive to compare both disks.",
+        "parameters": "diskcomp [<drive1>: [<drive2>:]]\n\nInvalid drive specification\n  Specified drive does not exist\n  or is nonremovable\n\nCompare OK\n\nCompare error on\n  side 1, track 2\n\nCompare another diskette (Y/N)?\n\nDrive types or diskette types not compatible\n\nInvalid drive specification\n\nCompare error on\n  side 0, track 0",
+        "examples": [
+            "diskcomp a: a:",
+            "rem Checkout.bat compares the disks in drive A and B\necho off\ndiskcomp a: b:\nif errorlevel 4 goto ini_error\nif errorlevel 3 goto hard_error\nif errorlevel 1 goto no_compare\nif errorlevel 0 goto compare_ok\n:ini_error\necho ERROR: Insufficient memory or command invalid\ngoto exit\n:hard_error\necho ERROR: An irrecoverable error occurred\ngoto exit\n:break\necho You just pressed CTRL+C to stop the comparison\ngoto exit\n:no_compare\necho Disks are not the same\ngoto exit\n:compare_ok\necho The comparison was successful; the disks are the same\ngoto exit\n:exit"
+        ]
+    },
+    "diskcopy": {
+        "cmdlet": "`diskcopy`",
+        "description": "Copies the contents of the floppy disk in the source drive to a formatted or unformatted floppy disk in the destination drive. If used without parameters, **diskcopy** uses the current drive for the source disk and the destination disk.",
+        "parameters": "diskcopy [<drive1>: [<drive2>:]] [/v]\n\nInvalid drive specification\n    Specified drive does not exist or is nonremovable\n\nCopy another diskette (Y/N)?\n\nFormatting while copying",
+        "examples": [
+            "diskcopy b: a:",
+            "diskcopy a: a:"
+        ]
+    },
+    "convert": {
+        "cmdlet": "`convert`",
+        "description": "Converts a disk from one disk type to another.",
+        "parameters": "convert basic\nconvert dynamic\nconvert gpt\nconvert mbr",
+        "examples": []
+    },
+    "vssadmin": {
+        "cmdlet": "`vssadmin`",
+        "description": "Displays current volume shadow copy backups and all installed shadow copy writers and providers. Select a command name in the following table view its command syntax.",
+        "parameters": "",
+        "examples": []
+    },
+    "wbadmin": {
+        "cmdlet": "`wbadmin`",
+        "description": "Enables you to back up and restore your operating system, volumes, files, folders, and applications from a command prompt.",
+        "parameters": "",
+        "examples": []
+    },
+    "diskshadow": {
+        "cmdlet": "`diskshadow`",
+        "description": "Diskshadow.exe is a tool that exposes the functionality offered by the volume shadow copy Service (VSS). By default, Diskshadow uses an interactive command interpreter similar to that of Diskraid or Diskpart. Diskshadow also includes a scriptable mode.",
+        "parameters": "diskshadow\n\ndiskshadow -s script.txt",
+        "examples": [
+            "#Diskshadow script file\nset context persistent nowriters\nset metadata c:\\diskshadowdata\\example.cab\nset verbose on\nbegin backup\nadd volume c: alias systemvolumeshadow\nadd volume d: alias datavolumeshadow\n\ncreate\n\nexpose %systemvolumeshadow% p:\nexpose %datavolumeshadow% q:\nexec c:\\diskshadowdata\\backupscript.cmd\nend backup\n#End of script"
+        ]
+    },
+    "recover": {
+        "cmdlet": "`recover`",
+        "description": "Recovers readable information from a bad or defective disk. This command reads a file, sector-by-sector, and recovers data from the good sectors. Data in bad sectors is lost. Because all data in bad sectors is lost when you recover a file, you should recover only one file at a time.",
+        "parameters": "recover [<drive>:][<path>]<filename>\n\nrecover d:\\fiction\\story.txt",
+        "examples": [
+            "recover d:\\fiction\\story.txt"
+        ]
+    },
+    "systeminfo": {
+        "cmdlet": "`systeminfo`",
+        "description": "Displays detailed configuration information about a computer and its operating system, including operating system configuration, security information, product ID, and hardware properties (such as RAM, disk space, and network cards).",
+        "parameters": "systeminfo [/s <computer> [/u <domain>\\<username> [/p <password>]]] [/fo {TABLE | LIST | CSV}] [/nh]",
+        "examples": [
+            "systeminfo /s srvmain",
+            "systeminfo /s srvmain2 /u maindom\\hiropln",
+            "systeminfo /s srvmain2 /u maindom\\hiropln /p p@ssW23 /fo list"
+        ]
+    },
+    "ver": {
+        "cmdlet": "`ver`",
+        "description": "Displays the operating system version number. This command is supported in the Windows Command prompt (Cmd.exe), but not in any version of PowerShell.",
+        "parameters": "ver",
+        "examples": [
+            "ver",
+            "$PSVersionTable.BuildVersion",
+            "$PSVersionTable.OS"
+        ]
+    },
+    "hostname": {
+        "cmdlet": "`hostname`",
+        "description": "Displays the host name portion of the full computer name of the computer.",
+        "parameters": "hostname\n\nhostname\n\necho %COMPUTERNAME%\n\nset \"_CLUSTER_NETWORK_NAME_=Altered Computer Name\"\nhostname",
+        "examples": [
+            "hostname",
+            "echo %COMPUTERNAME%",
+            "set \"_CLUSTER_NETWORK_NAME_=Altered Computer Name\"\nhostname"
+        ]
+    },
+    "whoami": {
+        "cmdlet": "`whoami`",
+        "description": "The `whoami` command shows information about the user, groups, and privileges for the account currently logged on to the local system. When run without any parameters, `whoami` returns the current domain and user name.",
+        "parameters": "whoami [/upn | /fqdn | /logonid]\nwhoami {[/user] [/groups] [/claims] [/priv]} [/fo <format>] [/nh]\nwhoami /all [/fo <format>] [/nh]",
+        "examples": [
+            "whoami",
+            "DOMAIN1\\administrator",
+            "whoami /all"
+        ]
+    },
+    "msinfo32": {
+        "cmdlet": "`msinfo32`",
+        "description": "Opens the System Information tool to display a comprehensive view of the hardware, system components, and software environment on the local computer.",
+        "parameters": "msinfo32 [/pch] [/nfo <path>] [/report <path>] [/computer <computername>] [/showcategories] [/category <categoryID>] [/categories {+<categoryID>(+<categoryID>)|+all(-<categoryID>)}]\n\nmsinfo32 /showcategories\n\nmsinfo32 /categories +all -loadedmodules\n\nmsinfo32 /nfo syssum.nfo /categories +systemsummary\n\nmsinfo32 /nfo conflicts.nfo /categories +componentsproblemdevices+resourcesconflicts+resourcesforcedhardware",
+        "examples": [
+            "msinfo32 /showcategories",
+            "msinfo32 /categories +all -loadedmodules",
+            "msinfo32 /nfo syssum.nfo /categories +systemsummary",
+            "msinfo32 /nfo conflicts.nfo /categories +componentsproblemdevices+resourcesconflicts+resourcesforcedhardware"
+        ]
+    },
+    "getmac": {
+        "cmdlet": "`getmac`",
+        "description": "Returns the media access control (MAC) address and list of network protocols associated with each address for all network cards in each computer, either locally or across a network. This command is particularly useful either when you want to enter the MAC address into a network analyzer, or when you need to know what protocols are currently in use on each network adapter on a computer.",
+        "parameters": "getmac[.exe][/s <computer> [/u <domain\\<user> [/p <password>]]][/fo {table | list | csv}][/nh][/v]\n\ngetmac /fo table /nh /v\n\ngetmac /s srvmain\n\ngetmac /s srvmain /u maindom\\hiropln\n\ngetmac /s srvmain /u maindom\\hiropln /p p@ssW23\n\ngetmac /s srvmain /u maindom\\hiropln /p p@ssW23 /fo list /v\n\ngetmac /s srvmain /u maindom\\hiropln /p p@ssW23 /fo table /nh",
+        "examples": [
+            "getmac /fo table /nh /v",
+            "getmac /s srvmain",
+            "getmac /s srvmain /u maindom\\hiropln",
+            "getmac /s srvmain /u maindom\\hiropln /p p@ssW23",
+            "getmac /s srvmain /u maindom\\hiropln /p p@ssW23 /fo list /v",
+            "getmac /s srvmain /u maindom\\hiropln /p p@ssW23 /fo table /nh"
+        ]
+    },
+    "driverquery": {
+        "cmdlet": "`driverquery`",
+        "description": "Enables an administrator to display a list of installed device drivers and their properties. If used without parameters, **driverquery** runs on the local computer.",
+        "parameters": "driverquery [/s <system> [/u [<domain>\\]<username> [/p <password>]]] [/fo {table | list | csv}] [/nh] [/v | /si]\n\ndriverquery\n\ndriverquery /fo csv\n\ndriverquery /nh\n\ndriverquery /s server1\n\ndriverquery /s server1 /u maindom\\user1 /p p@ssw3d",
+        "examples": [
+            "driverquery",
+            "driverquery /fo csv",
+            "driverquery /nh",
+            "driverquery /s server1",
+            "driverquery /s server1 /u maindom\\user1 /p p@ssw3d"
+        ]
+    },
+    "tasklist": {
+        "cmdlet": "`tasklist`",
+        "description": "Displays a list of currently running processes on the local computer or on a remote computer. **Tasklist** replaces the **tlist** tool.",
+        "parameters": "tasklist [/s <computer> [/u [<domain>\\]<username> [/p <password>]]] [{/m <module> | /svc | /v}] [/fo {table | list | csv}] [/nh] [/fi <filter> [/fi <filter> [ ... ]]]",
+        "examples": [
+            "tasklist /v /fi \"PID gt 1000\" /fo csv",
+            "tasklist /fi \"USERNAME ne NT AUTHORITY\\SYSTEM\" /fi \"STATUS eq running\"",
+            "tasklist /v /fi \"STATUS eq running\"",
+            "tasklist /s srvmain /svc /fi \"MODULES eq ntdll*\"",
+            "tasklist /s srvmain",
+            "tasklist /s srvmain /u maindom\\hiropln /p p@ssW23"
+        ]
+    },
+    "taskkill": {
+        "cmdlet": "`taskkill`",
+        "description": "Ends one or more tasks or processes. Processes can be ended by process ID or image name. You can use the [tasklist command](tasklist.md) command to determine the process ID (PID) for the process to be ended.",
+        "parameters": "taskkill [/s <computer> [/u [<domain>\\]<username> [/p [<password>]]]] {[/fi <filter>] [...] [/pid <processID> | /im <imagename>]} [/f] [/t]",
+        "examples": [
+            "taskkill /pid 1230 /pid 1241 /pid 1253",
+            "taskkill /f /fi \"USERNAME eq NT AUTHORITY\\SYSTEM\" /im notepad.exe",
+            "taskkill /s srvmain /u maindom\\hiropln /p p@ssW23 /fi \"IMAGENAME eq note*\" /im *",
+            "taskkill /pid 2134 /t /fi \"username eq administrator\"",
+            "taskkill /f /fi \"PID ge 1000\" /im *"
+        ]
+    },
+    "start": {
+        "cmdlet": "`start`",
+        "description": "Starts a separate Command Prompt window to run a specified program or command.",
+        "parameters": "start <\"title\"> [/d <path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/low | /normal | /high | /realtime | /abovenormal | /belownormal}] [/node <NUMA node>] [/affinity <hexaffinity>] [/wait] [/b] [/machine <x86|amd64|arm|arm64>] [<command> [<parameter>... ] | <program> [<parameter>... ]]",
+        "examples": [
+            "start Myapp",
+            "start /max start /?",
+            "start \"Bing\" \"https://www.bing.com\""
+        ]
+    },
+    "schtasks": {
+        "cmdlet": "`schtasks`",
+        "description": "Schedules commands and programs to run periodically or at a specific time, adds and removes tasks from the schedule, starts and stops tasks on demand, and displays and changes scheduled tasks.",
+        "parameters": "schtasks /change\nschtasks /create\nschtasks /delete\nschtasks /end\nschtasks /query\nschtasks /run",
+        "examples": []
+    },
+    "at": {
+        "cmdlet": "`at`",
+        "description": "Schedules commands and programs to run on a computer at a specified time and date. You can use **at** only when the Schedule service is running. Used without parameters, **at** lists scheduled commands. You must be a member of the local Administrators group to run this command.",
+        "parameters": "at [\\computername] [[id] [/delete] | /delete [/yes]]\nat [\\computername] <time> [/interactive] [/every:date[,...] | /next:date[,...]] <command>\n\ncmd /c dir > c:\\test.out\n\nStatus  ID   Day        time        Command Line\n    OK      1    Each F     4:30 PM     net send group leads status due\n    OK      2    Each M     12:00 AM    chkstor > check.file\n    OK      3    Each F     11:59 PM    backup2.bat\n\nTask ID: 1\n    Status: OK\n    Schedule: Each  F\n    Time of Day: 4:30 PM\n    Command: net send group leads status due\n\nat 14:45 c:\\test.bat ^>c:\\output.txt\n\nat 1:00pm my_backup \\\\server\\share\n\nat 1:00pm my_backup x:",
+        "examples": [
+            "at \\\\marketing",
+            "at \\\\corp 3",
+            "at \\\\corp 08:00 cmd /c net share reports=d:\\marketing\\reports >> \\\\maintenance\\reports\\corp.txt",
+            "at \\\\marketing 00:00 /every:5,10,15,20,25,30 archive",
+            "at /delete",
+            "cmd /c dir > c:\\test.out"
+        ]
+    },
+    "ipconfig": {
+        "cmdlet": "`ipconfig`",
+        "description": "Displays all current TCP/IP network configuration values and refreshes Dynamic Host Configuration Protocol (DHCP) and Domain Name System (DNS) settings. Used without parameters, **ipconfig** displays Internet Protocol version 4 (IPv4) and IPv6 addresses, subnet mask, and default gateway for all adapters.",
+        "parameters": "ipconfig [/allcompartments] [/all] [/renew [<adapter>]] [/release [<adapter>]] [/renew6[<adapter>]] [/release6 [<adapter>]] [/flushdns] [/displaydns] [/registerdns] [/showclassid <adapter>] [/setclassid <adapter> [<classID>]]\n\nipconfig\n\nipconfig /all\n\nipconfig /renew Local Area Connection\n\nipconfig /flushdns\n\nipconfig /showclassid Local*\n\nipconfig /setclassid Local Area Connection TEST",
+        "examples": [
+            "ipconfig",
+            "ipconfig /all",
+            "ipconfig /renew Local Area Connection",
+            "ipconfig /flushdns",
+            "ipconfig /showclassid Local*",
+            "ipconfig /setclassid Local Area Connection TEST"
+        ]
+    },
+    "arp": {
+        "cmdlet": "`arp`",
+        "description": "The `arp` command displays and modifies entries in the Address Resolution Protocol (ARP) cache. The ARP cache contains one or more tables that are used to store IP addresses and their resolved Ethernet or Token Ring physical addresses. There's a separate table for each Ethernet or Token Ring network adapter installed on your computer.",
+        "parameters": "arp -s [inet_addr] [eth_addr] [if_addr]\narp -d [inet_addr] [if_addr]\narp -a [inet_addr] [-N if_addr] [-v]",
+        "examples": [
+            "arp -a",
+            "arp -a -N 10.0.0.99",
+            "arp -s 10.0.0.80 00-AA-00-4F-2A-9C"
+        ]
+    },
+    "netstat": {
+        "cmdlet": "`netstat`",
+        "description": "Displays active TCP connections, ports on which the computer is listening, Ethernet statistics, the IP routing table, IPv4 statistics (for the IP, ICMP, TCP, and UDP protocols), and IPv6 statistics (for the IPv6, ICMPv6, TCP over IPv6, and UDP over IPv6 protocols). Used without parameters, this command displays active TCP connections.",
+        "parameters": "netstat [-a] [-b] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<interval>]\n\nnetstat -e -s\n\nnetstat -s -p tcp udp\n\nnetstat -o 5\n\nnetstat -n -o",
+        "examples": [
+            "netstat -e -s",
+            "netstat -s -p tcp udp",
+            "netstat -o 5",
+            "netstat -n -o"
+        ]
+    },
+    "nbtstat": {
+        "cmdlet": "`nbtstat`",
+        "description": "Displays NetBIOS over TCP/IP (NetBT) protocol statistics, NetBIOS name tables for both the local computer and remote computers, and the NetBIOS name cache. This command also allows a refresh of the NetBIOS name cache and the names registered with Windows Internet Name Service (WINS). Used without parameters, this command displays Help information.",
+        "parameters": "nbtstat [/a <remotename>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [<interval>]\n\nnbtstat /a CORP07\n\nnbtstat /A 10.0.0.99\n\nnbtstat /n\n\nnbtstat /c\n\nnbtstat /R\n\nnbtstat /RR\n\nnbtstat /S 5",
+        "examples": [
+            "nbtstat /a CORP07",
+            "nbtstat /A 10.0.0.99",
+            "nbtstat /n",
+            "nbtstat /c",
+            "nbtstat /R",
+            "nbtstat /RR",
+            "nbtstat /S 5"
+        ]
+    },
+    "ping": {
+        "cmdlet": "`ping`",
+        "description": "Verifies IP-level connectivity to another TCP/IP computer by sending Internet Control Message Protocol (ICMP) echo Request messages. The receipt of the corresponding echo Reply messages is displayed, along with round-trip times. ping is the primary TCP/IP command used to troubleshoot connectivity, reachability, and name resolution. Used without parameters, this command displays Help content.",
+        "parameters": "ping [/t] [/a] [/n <count>] [/l <size>] [/f] [/I <TTL>] [/v <TOS>] [/r <count>] [/s <count>] [{/j <hostlist> | /k <hostlist>}] [/w <timeout>] [/R] [/S <Srcaddr>] [/4] [/6] <targetname>\n\nC:\\>ping example.microsoft.com\n    pinging example.microsoft.com [192.168.239.132] with 32 bytes of data:\n    Reply from 192.168.239.132: bytes=32 time=101ms TTL=124\n    Reply from 192.168.239.132: bytes=32 time=100ms TTL=124\n    Reply from 192.168.239.132: bytes=32 time=120ms TTL=124\n    Reply from 192.168.239.132: bytes=32 time=120ms TTL=124\n\nping /a 10.0.99.221\n\nping /n 10 /l 1000 10.0.99.221\n\nping /r 4 10.0.99.221\n\nping /j 10.12.0.1 10.29.3.1 10.1.44.1 10.0.99.221",
+        "examples": [
+            "ping /a 10.0.99.221",
+            "ping /n 10 /l 1000 10.0.99.221",
+            "ping /r 4 10.0.99.221",
+            "ping /j 10.12.0.1 10.29.3.1 10.1.44.1 10.0.99.221"
+        ]
+    },
+    "tracert": {
+        "cmdlet": "`tracert`",
+        "description": "This diagnostic tool determines the path taken to a destination by sending Internet Control Message Protocol (ICMP) echo Request or ICMPv6 messages to the destination with incrementally increasing time to live (TTL) field values. Each router along the path is required to decrement the TTL in an IP packet by at least 1 before forwarding it. Effectively, the TTL is a maximum link counter. When the TTL on a packet reaches 0, the router is expected to return an ICMP time Exceeded message to the source computer.",
+        "parameters": "tracert [/d] [/h <maximumhops>] [/j <hostlist>] [/w <timeout>] [/R] [/S <srcaddr>] [/4][/6] <targetname>",
+        "examples": [
+            "tracert www.microsoft.com",
+            "Tracing route to e13678.dscb.akamaiedge.net [23.216.93.114]\nover a maximum of 30 hops:\n\n 1     1 ms     1 ms    <1 ms  <devicename>.mshome.net [172.26.96.1]\n 2    11 ms    13 ms     6 ms  192.168.191.20\n 3    20 ms    11 ms    18 ms  192.168.1.1\n 4    44 ms    41 ms    35 ms  10.228.0.1\n 5    32 ms    31 ms    46 ms  10.41.0.49\n 6    36 ms    39 ms    30 ms  10.41.0.221\n 7    35 ms    36 ms    39 ms  10.41.0.225\n 8    54 ms    45 ms    50 ms  204.111.0.147\n 9    50 ms    52 ms    47 ms  ae-39.a02.atlnga05.us.bb.gin.ntt.net [128.241.219.117]\n10    53 ms    51 ms    61 ms  ae-5.r24.atlnga05.us.bb.gin.ntt.net [129.250.4.192]\n11    64 ms    45 ms    44 ms  ae-0.a03.atlnga05.us.bb.gin.ntt.net [129.250.2.20]\n12    49 ms    67 ms    46 ms  ae-0.akamai-onnet.atlnga05.us.bb.gin.ntt.net [128.241.1.122]\n13    67 ms   287 ms     *     ae20.r03.border101.atl02.fab.netarch.akamai.com [23.203.144.21]\n14     *        *        *     Request timed out.\n15     *        *        *     Request timed out.\n16     *        *        *     Request timed out.\n17   204 ms    58 ms    51 ms  a23-216-93-114.deploy.static.akamaitechnologies.com [23.216.93.114]\n\nTrace complete.",
+            "tracert /d www.microsoft.com",
+            "tracert /j 10.12.0.1 10.29.3.1 10.1.44.1 www.microsoft.com"
+        ]
+    },
+    "pathping": {
+        "cmdlet": "`pathping`",
+        "description": "Provides information about network latency and network loss at intermediate hops between a source and destination. This command sends multiple echo Request messages to each router between a source and destination, over a period of time, and then computes results based on the packets returned from each router. Because this command displays the degree of packet loss at any given router or link, you can determine which routers or subnets might be having network problems. Used without parameters, this command displays help.",
+        "parameters": "pathping [/n] [/h <maximumhops>] [/g <hostlist>] [/p <Period>] [/q <numqueries> [/w <timeout>] [/i <IPaddress>] [/4 <IPv4>] [/6 <IPv6>][<targetname>]\n\nD:\\>pathping /n contoso1\nTracing route to contoso1 [10.54.1.196]\nover a maximum of 30 hops:\n  0  172.16.87.35\n  1  172.16.87.218\n  2  192.168.52.1\n  3  192.168.80.1\n  4  10.54.247.14\n  5  10.54.1.196\ncomputing statistics for 125 seconds...\n            Source to Here   This Node/Link\nHop  RTT    Lost/Sent = Pct  Lost/Sent = Pct  address\n  0                                           172.16.87.35\n                                0/ 100 =  0%   |\n  1   41ms     0/ 100 =  0%     0/ 100 =  0%  172.16.87.218\n                               13/ 100 = 13%   |\n  2   22ms    16/ 100 = 16%     3/ 100 =  3%  192.168.52.1\n                                0/ 100 =  0%   |\n  3   24ms    13/ 100 = 13%     0/ 100 =  0%  192.168.80.1\n                                0/ 100 =  0%   |\n  4   21ms    14/ 100 = 14%     1/ 100 =  1%  10.54.247.14\n                                0/ 100 =  0%   |\n  5   24ms    13/ 100 = 13%     0/ 100 =  0%  10.54.1.196\nTrace complete.",
+        "examples": []
+    },
+    "nslookup": {
+        "cmdlet": "`nslookup`",
+        "description": "Displays information that you can use to diagnose Domain Name System (DNS) infrastructure. Before using this tool, you should be familiar with how DNS works. The nslookup command-line tool is available only if you have installed the TCP/IP protocol.",
+        "parameters": "nslookup [exit | finger | help | ls | lserver | root | server | set | view] [options]",
+        "examples": [
+            "nslookup mydomain.com 1.1.1.1",
+            "nslookup 4.4.4.4",
+            "nslookup -debug mydomain.com",
+            "nslookup -type=AAAA mydomain.com",
+            "nslookup -debug -type=A+AAAA -nosearch -recurse mydomain.com 1.1.1.1",
+            "nslookup - 1.1.1.1",
+            "set all",
+            "mydomain.com",
+            "server 4.4.4.4",
+            "set type=HINFO",
+            "exit"
+        ]
+    },
+    "telnet": {
+        "cmdlet": "`telnet`",
+        "description": "Communicates with a computer running the telnet server service. Running this command without any parameters, lets you enter the telnet context, as indicated by the telnet prompt (**Microsoft telnet>**). From the telnet prompt, you can use telnet commands to manage the computer running the telnet client.",
+        "parameters": "telnet [/a] [/e <escapechar>] [/f <filename>] [/l <username>] [/t {vt100 | vt52 | ansi | vtnt}] [<host> [<port>]] [/?]",
+        "examples": [
+            "telnet telnet.microsoft.com",
+            "telnet /f telnetlog.txt telnet.microsoft.com 44"
+        ]
+    },
+    "ftp": {
+        "cmdlet": "`ftp`",
+        "description": "Transfers files to and from a computer running a File Transfer Protocol (ftp) server service. This command can be used interactively or in batch mode by processing ASCII text files.",
+        "parameters": "ftp [-v] [-d] [-i] [-n] [-g] [-s:<filename>] [-a] [-A] [-x:<sendbuffer>] [-r:<recvbuffer>] [-b:<asyncbuffers>][-w:<windowssize>][<host>] [-?]\n\nftp ftp.example.microsoft.com\n\nftp -s:resync.txt ftp.example.microsoft.com",
+        "examples": [
+            "ftp ftp.example.microsoft.com",
+            "ftp -s:resync.txt ftp.example.microsoft.com"
+        ]
+    },
+    "tftp": {
+        "cmdlet": "`tftp`",
+        "description": "Transfers files to and from a remote computer, typically a computer running UNIX, that is running the Trivial File Transfer Protocol (tftp) service or daemon. tftp is typically used by embedded devices or systems that retrieve firmware, configuration information, or a system image during the boot process from a tftp server.",
+        "parameters": "tftp [-i] [<host>] [{get | put}] <source> [<destination>]",
+        "examples": [
+            "tftp  -i Host1 get boot.img"
+        ]
+    },
+    "netsh": {
+        "cmdlet": "`netsh`",
+        "description": "Network shell (netsh) is a versatile and comprehensive command-line utility for configuring, managing, and monitoring network components and server roles on Windows and Windows Server systems. With `netsh`, you can view and modify network settings, automate tasks, and troubleshoot network issues locally or remotely.",
+        "parameters": "",
+        "examples": []
+    },
+    "netsh interface": {
+        "cmdlet": "`netsh interface`",
+        "description": "The `netsh interface` command provides a comprehensive set of tools for configuring and managing network interfaces in Windows. Using this command, you can enable or disable network adapters, assign static or dynamic IP addresses, configure DNS and WINS servers, rename interfaces, and monitor interface statistics. The interface context is useful for troubleshooting connectivity issues, optimizing network settings, and automating network configuration tasks across physical and virtual adapters.",
+        "parameters": "netsh interface [6to4 | clat | dump | fl48 | fl68 | help | httpstunnel | ipv4 | ipv6 | isatap | portproxy | set | show | tcp | teredo | udp | ?]\n\nnetsh interface 6to4 dump\nnetsh interface 6to4 set interface [name=]<string> [routing=](enabled|disabled|default)\nnetsh interface 6to4 set relay [name=]<string>|default [state=]enabled|disabled|automatic|default [interval=]<integer>\nnetsh interface 6to4 set routing [routing=]enabled|disabled|automatic|default [sitelocals=]enabled|disabled|default\nnetsh interface 6to4 set state [state=]enabled|disabled|default [undoonstop=]enabled|disabled|default\nnetsh interface 6to4 show <interface> <relay> <routing> <state>\n\nnetsh interface clat dump\nnetsh interface clat set global [permit=]disabled|enabled [pref64fromdns=]disabled|enabled [pref64fromra=]disabled|enabled\nnetsh interface clat show global\n\nnetsh interface fl48 dump\nnetsh interface fl48 show virtualinterfaces\n\nnetsh interface fl68 dump\nnetsh interface fl68 show virtualinterfaces\n\nnetsh interface httpstunnel add interface [type=]server|client [url=]<string> [state=]enabled|disabled|default\n                                          [authmode=]none|certificates\nnetsh interface httpstunnel delete interface\nnetsh interface httpstunnel dump\nnetsh interface httpstunnel reset\nnetsh interface httpstunnel set interface [url=]<string> [state=]enabled|disabled|default [authmode=]none|certificates\nnetsh interface httpstunnel show interfaces [store=]active|persistent\nnetsh interface httpstunnel show statistics [interface=]<string>\n\nnetsh interface ipv4 add address [name=]<string> [address=]<IPv4 address>[/<integer> [mask=]<IPv4 mask>]\n                                 [type=]unicast|anycast [gateway=]<IPv4 address> [gwmetric=]<integer>\n                                 [validlifetime=]<integer>|infinite [preferredlifetime=]<integer>|infinite\n                                 [subinterface=]<string> [store=]active|persistent [skipassource=]true|false\nnetsh interface ipv4 add dnsservers [name=]<string> [address=]<IPv4 address> [index=]<integer> [validate=]yes|no\nnetsh interface ipv4 add excludedportrange [protocol=]tcp|udp [startport=]<integer> [numberofports=]<integer>\n                                           [store=]active|persistent\nnetsh interface ipv4 add neighbors [interface=]<string> [address=]<IPv4 address> [neighbor=]<string>\n                                   [subinterface=]<string> [store=]active|persistent\nnetsh interface ipv4 add route [prefix=]<IPv4 address>/<integer> [interface=]<string> [nexthop=]<IPv4 address>\n                               [siteprefixlength=]<integer> [metric=]<integer> [publish=]no|age|yes\n                               [validlifetime=]<integer>|infinite [preferredlifetime=]<integer>|infinite\n                               [store=]active|persistent\nnetsh interface ipv4 add winsservers [name=]<string> [address=]<IP address> [index=]<integer>\nnetsh interface ipv4 delete address [name=]<string> [address=]<IPv4 address> [gateway=]<IPv4 address>|all\n                                    [store=]active|persistent\nnetsh interface ipv4 delete arpcache [name=]<string> [address=]<IPv4 address> [subinterface=]<string>\n                                     [store=]active|persistent\nnetsh interface ipv4 delete destinationcache [interface=]<string> [address=]<IP address>\nnetsh interface ipv4 delete dnsservers [name=]<string> [address=]<IPv4 address> [validate=]yes|no\nnetsh interface ipv4 delete excludedportrange [protocol=]tcp|udp [startport=]<integer> [numberofports=]<integer>\n                                              [store=]active|persistent\nnetsh interface ipv4 delete neighbors [name=]<string> [address=]<IPv4 address> [subinterface=]<string>\n                                      [store=]active|persistent\nnetsh interface ipv4 delete route [prefix=]<IPv4 address>/<integer> [interface=]<string> [nexthop=]<IPv4 address>\n                                  [store=]active|persistent\nnetsh interface ipv4 delete winsservers [name=]<string> [address=]<IP address>|all\nnetsh interface ipv4 dump\nnetsh interface ipv4 install\nnetsh interface ipv4 reset\nnetsh interface ipv4 set address [name=]<string> [source=]dhcp|static [address=]<IPv4 address>[/<integer>]\n                                 [mask=]<IPv4 mask> [gateway=]<IPv4 address>|none [gwmetric=]<integer>\n                                 [type=]unicast|anycast [subinterface=]<string> [store=]active|persistent\nnetsh interface ipv4 set compartment [compartment=]<integer> [defaultcurhoplimit=]<integer>\n                                     [store=]active|persistent\nnetsh interface ipv4 set dnsservers [name=]<string> [source=]dhcp|static [address=]<IP address>|none\n                                    [register=]none|primary|both [validate=]yes|no\nnetsh interface ipv4 set dynamicportrange [protocol=]tcp|udp [startport=]<integer> [numberofports=]<integer>\n                                          [store=]active|persistent\nnetsh interface ipv4 set global [defaultcurhoplimit=]<integer> [neighborcachelimit=]<integer>\n                                [routecachelimit=]<integer> [reassemblylimit=]<integer>\n                                [icmpredirects=]enabled|disabled [sourceroutingbehavior=]drop|forward|dontforward\n                                [taskoffload=]enabled|disabled [dhcpmediasense=]enabled|disabled\n                                [mediasenseeventlog=]enabled|disabled [mldlevel=]none|sendonly|all\n                                [mldversion=]version1|version2|version3 [multicastforwarding=]enabled|disabled\n                                [groupforwardedfragments=]enabled|disabled [randomizeidentifiers=]enabled|disabled\n                                [store=]active|persistent [addressmaskreply=]enabled|disabled [minmtu=]<integer>\n                                [flowlabel=]enabled|disabled [loopbacklargemtu=]enabled|disabled\n                                [loopbackworkercount=]enabled|disabled [loopbackexecutionmode=]inline|adaptive|worker\n                                [sourcebasedecmp=]enabled|disabled [reassemblyoutoforderlimit=]<integer>\n                                [slaacprivacylevel=]<integer> [slaacmaxdadattempts=]<integer>\n                                [routepolicies=]enabled|disabled [recursivereassembly=]enabled|disabled\n                                [icmpjumbograms=]enabled|disabled\nnetsh interface ipv4 set interface [interface=]<string> [[forwarding=]enabled|disabled]\n                                   [advertise=]enabled|disabled [mtu=]<integer> [siteprefixlength=]<integer>\n                                   [nud=]enabled|disabled [basereachabletime=]<integer>\n                                   [retransmittime=]<integer> [dadtransmits=]<integer>\n                                   [routerdiscovery=]enabled|disabled|dhcp [managedaddress=]enabled|disabled\n                                   [otherstateful=]enabled|disabled [weakhostsend=]enabled|disabled\n                                   [weakhostreceive=]enabled|disabled [ignoredefaultroutes=]enabled|disabled\n                                   [advertisedrouterlifetime=]<0-65535> [advertisedefaultroute=]enabled|disabled\n                                   [currenthoplimit=]<0-255> [store=]active|persistent\n                                   [forcearpndwolpattern=]enabled|disabled [enabledirectedmacwolpattern=]enabled|disabled\n                                   [ecncapability=]ecndisabled|ect1|ect0|application [rabaseddnsconfig=]enabled|disabled\n                                   [dhcpstaticipcoexistence=]enabled|disabled\nnetsh interface ipv4 set neighbors [interface=]<string> [address=]<IPv4 address> [neighbor=]<string> [store=]active|persistent\nnetsh interface ipv4 set route [prefix=]<IPv4 address>/<integer> [interface=]<string> [nexthop=]<IPv4 address>\n                               [siteprefixlength=]<integer> [metric=]<integer> [publish=]no|age|yes\n                               [validlifetime=]<integer>|infinite [preferredlifetime=]<integer>|infinite\n                               [store=]active|persistent\nnetsh interface ipv4 set subinterface [interface=]<string> [mtu=]<integer> [subinterface=]<string> [store=]active|persistent\nnetsh interface ipv4 set winsservers [name=]<string> [source=]dhcp|static [address=]<IP address>|none\nnetsh interface ipv4 show addresses [name=]<string>\nnetsh interface ipv4 show compartments [compartment=]<integer> [level=]normal|verbose [store=]active|persistent\nnetsh interface ipv4 show config [name=]<string>\nnetsh interface ipv4 show destinationcache [interface=]<string> [address=]<IP address> [level=]normal|verbose\nnetsh interface ipv4 show dnsservers [name=]string\nnetsh interface ipv4 show dynamicportrange [protocol=]tcp|udp [store=]active|persistent\nnetsh interface ipv4 show excludedportrange [protocol=]tcp|udp [store=]active|persistent\nnetsh interface ipv4 show global [store=]active|persistent\nnetsh interface ipv4 show icmpstats [rr=]<integer>\nnetsh interface ipv4 show interfaces [interface=]<string> [rr=]<integer> [level=]normal|verbose [store=]active|persistent\nnetsh interface ipv4 show ipaddresses [interface=]<string> [level=]normal|verbose [store=]active|persistent\nnetsh interface ipv4 show ipnettomedia [rr=]<integer>\nnetsh interface ipv4 show ipstats [rr=]<integer>\nnetsh interface ipv4 show joins [interface=]<string> [level=]normal|verbose\nnetsh interface ipv4 show neighbors [interface=]<string> [address=]<IP address> [subinterface=]<string>\n                                    [level=]normal|verbose [store=]active|persistent\nnetsh interface ipv4 show offload [name=]<string>\nnetsh interface ipv4 show route [level=]normal|verbose [store=]active|persistent\nnetsh interface ipv4 show subinterfaces [interface=]<string> [subinterface=]<string> [level=]normal|verbose\n                                        [store=]active|persistent\nnetsh interface ipv4 show tcpconnections [localaddress=]<IPv4 address> [localport=]<integer> [remoteaddress=]<IPv4 address>\n                                         [remoteport=]<integer> [rr=]<integer>\nnetsh interface ipv4 show tcpstats [rr=]<integer>\nnetsh interface ipv4 show udpconnections [localaddress=]<IPv4 address> [localport=]<integer> [rr=]<integer>\nnetsh interface ipv4 show udpstats [rr=]<integer>\nnetsh interface ipv4 show winsservers [name=]string\nnetsh interface ipv4 uninstall\n\nnetsh interface ipv6 6to4 dump\nnetsh interface ipv6 6to4 set interface [name=]<string> [routing=]enabled|disabled|default\nnetsh interface ipv6 6to4 set relay [name=]<string>|default [state=]enabled|disabled|automatic|default [interval=]<integer>\nnetsh interface ipv6 6to4 set routing [routing=]enabled|disabled|automatic|default [sitelocals=]enabled|disabled|default\nnetsh interface ipv6 6to4 set state [state=]enabled|disabled|default [undoonstop=]enabled|disabled|default\nnetsh interface ipv6 6to4 show <interface> <relay> <routing> <state>\nnetsh interface ipv6 add address [interface=]<string> [address=]<IPv6 address>[/<integer>] [type=]unicast|anycast\n                                 [validlifetime=]<integer>|infinite [preferredlifetime=]<integer>|infinite\n                                 [store=]active|persistent [skipassource=]true|false\nnetsh interface ipv6 add dnsservers [name=]<string> [address=]<IPv6 address> [index=]<integer> [validate=]yes|no\nnetsh interface ipv6 add excludedportrange [protocol=]tcp|udp [startport=]<integer> [numberofports=]<integer>\n                                           [store=]active|persistent\nnetsh interface ipv6 add neighbors [interface=]<string> [address=]<IPv6 address> [neighbor=]<string> [subinterface=]<string>\n                                   [store=]active|persistent\nnetsh interface ipv6 add potentialrouter [interface=]<string> [address=]<IPv6 address>\nnetsh interface ipv6 add prefixpolicy [prefix=]<IPv6 address>/<integer> [precedence=]<integer> [label=]<integer>\n                                      [store=]active|persistent\nnetsh interface ipv6 add route [prefix=]<IPv6 address>/<integer> [interface=]<string> [nexthop=]<IPv6 address>\n                               [siteprefixlength=]<integer> [metric=]<integer> [publish=]no|age|yes\n                               [validlifetime=]<integer>|infinite [preferredlifetime=]<integer>|infinite\n                               [store=]active|persistent\nnetsh interface ipv6 add v6v4tunnel [interface=]<string> [localaddress=]<IPv4 address> [remoteaddress=]<IPv4 address>\nnetsh interface ipv6 delete address [interface=]<string> [address=]<IPv6 address> [store=]active|persistent\nnetsh interface ipv6 delete destinationcache [interface=]<string> [address=]<IP address>\nnetsh interface ipv6 delete dnsservers [name=]<string> [address=]<IPv6 address>|all [validate=]yes|no\nnetsh interface ipv6 delete excludedportrange [protocol=]tcp|udp [startport=]<integer> [numberofports=]<integer>\n                                              [store=]active|persistent\nnetsh interface ipv6 delete interface [interface=]<string>\nnetsh interface ipv6 delete neighbors [interface=]<string> [address=]<IPv6 address> [subinterface=]<string>\n                                      [store=]active|persistent\nnetsh interface ipv6 delete potentialrouter [interface=]<string> [address=]<IPv6 address>\nnetsh interface ipv6 delete prefixpolicy [prefix=]<IPv6 address>/<integer> [store=]active|persistent\nnetsh interface ipv6 delete route [prefix=]<IPv6 address>/<integer> [interface=]<string> [nexthop=]<IPv6 address>\n                                  [store=]active|persistent\nnetsh interface ipv6 dump\nnetsh interface ipv6 isatap dump\nnetsh interface ipv6 isatap set router [name=]<string>|default [state=]enabled|disabled|default [interval=]<integer>\nnetsh interface ipv6 isatap set state [state=]enabled|disabled|default\nnetsh interface ipv6 isatap show <router> <state>\nnetsh interface ipv6 reset\nnetsh interface ipv6 set address [interface=]<string> [address=]<IPv6 address> [type=]unicast|anycast\n                                 [validlifetime=]<integer>|infinite [preferredlifetime=]<integer>|infinite\n                                 [store=]active|persistent\nnetsh interface ipv6 set compartment [compartment=]<integer> [defaultcurhoplimit=]<integer> [store=]active|persistent\nnetsh interface ipv6 set dnsservers [name=]<string> [source=]dhcp|static [address=]<IP address>|none\n                                    [register=]none|primary|both [validate=]yes|no\nnetsh interface ipv6 set dynamicportrange [protocol=]tcp|udp [startport=]<integer> [numberofports=]<integer>\n                                          [store=]active|persistent\nnetsh interface ipv6 set global [defaultcurhoplimit=]<integer> [neighborcachelimit=]<integer>\n                                [routecachelimit=]<integer> [reassemblylimit=]<integer>\n                                [icmpredirects=]enabled|disabled [sourceroutingbehavior=]drop|forward|dontforward\n                                [taskoffload=]enabled|disabled [dhcpmediasense=]enabled|disabled\n                                [mediasenseeventlog=]enabled|disabled [mldlevel=]none|sendonly|all\n                                [mldversion=]version1|version2|version3 [multicastforwarding=]enabled|disabled\n                                [groupforwardedfragments=]enabled|disabled [randomizeidentifiers=]enabled|disabled\n                                [store=]active|persistent [addressmaskreply=]enabled|disabled [minmtu=]<integer>\n                                [flowlabel=]enabled|disabled [loopbacklargemtu=]enabled|disabled\n                                [loopbackworkercount=]enabled|disabled [loopbackexecutionmode=]inline|adaptive|worker\n                                [sourcebasedecmp=]enabled|disabled [reassemblyoutoforderlimit=]<integer>\n                                [slaacprivacylevel=]<integer> [slaacmaxdadattempts=]<integer>\n                                [routepolicies=]enabled|disabled [recursivereassembly=]enabled|disabled\n                                [icmpjumbograms=]enabled|disabled\nnetsh interface ipv6 set interface [interface=]<string> [[forwarding=]enabled|disabled]\n                                   [advertise=]enabled|disabled [mtu=]<integer> [siteprefixlength=]<integer>\n                                   [nud=]enabled|disabled [basereachabletime=]<integer>\n                                   [retransmittime=]<integer> [dadtransmits=]<integer>\n                                   [routerdiscovery=]enabled|disabled|dhcp [managedaddress=]enabled|disabled\n                                   [otherstateful=]enabled|disabled [weakhostsend=]enabled|disabled\n                                   [weakhostreceive=]enabled|disabled [ignoredefaultroutes=]enabled|disabled\n                                   [advertisedrouterlifetime=]<0-65535> [advertisedefaultroute=]enabled|disabled\n                                   [currenthoplimit=]<0-255> [store=]active|persistent\n                                   [forcearpndwolpattern=]enabled|disabled [enabledirectedmacwolpattern=]enabled|disabled\n                                   [ecncapability=]ecndisabled|ect1|ect0|application [rabaseddnsconfig=]enabled|disabled\n                                   [dhcpstaticipcoexistence=]enabled|disabled\nnetsh interface ipv6 set neighbors [interface=]<string> [address=]<IPv6 address> [neighbor=]<string> [store=]active|persistent\nnetsh interface ipv6 set prefixpolicy [prefix=]<IPv6 address>/<integer> [precedence=]<integer> [label=]<integer>\n                                      [store=]active|persistent\nnetsh interface ipv6 set privacy [prefix=]<IPv6 address>/<integer> [precedence=]<integer> [label=]<integer>\n                                 [store=]active|persistent\nnetsh interface ipv6 set route [prefix=]<IPv6 address>/<integer> [interface=]<string> [nexthop=]<IPv6 address>\n                               [siteprefixlength=]<integer> [metric=]<integer> [publish=]no|age|yes\n                               [validlifetime=]<integer>|infinite [preferredlifetime=]<integer>|infinite\n                               [store=]active|persistent\nnetsh interface ipv6 set slaacsecretkey [key=]<string>\nnetsh interface ipv6 set subinterface [interface=]<string> [mtu=]<integer> [subinterface=]<string> [store=]active|persistent\nnetsh interface ipv6 set teredo [type]=disabled|client|enterpriseclient|natawareclient|server|default\n                                [servername=]<hostname>|<IPv4 address>|default [refreshinterval=]<integer>|default\n                                [clientport=]<integer>|default [servervirtualip=]<IPv4 address>|default\nnetsh interface ipv6 show addresses [interface=]<string> [level=]normal|verbose [store=]active|persistent\nnetsh interface ipv6 show compartments [compartment=]<integer> [level=]normal|verbose [store=]active|persistent\nnetsh interface ipv6 show destinationcache [interface=]<string> [address=]<IP address> [level=]normal|verbose\nnetsh interface ipv6 show dnsservers [name=]string\nnetsh interface ipv6 show dynamicportrange [protocol=]tcp|udp [store=]active|persistent\nnetsh interface ipv6 show excludedportrange [protocol=]tcp|udp [store=]active|persistent\nnetsh interface ipv6 show global [store=]active|persistent\nnetsh interface ipv6 show interfaces [interface=]<string> [rr=]<integer> [level=]normal|verbose [store=]active|persistent\nnetsh interface ipv6 show ipstats [rr=]<integer>\nnetsh interface ipv6 show joins [interface=]<string> [level=]normal|verbose\nnetsh interface ipv6 show neighbors [interface=]<string> [address=]<IP address> [subinterface=]<string>\n                                    [level=]normal|verbose [store=]active|persistent\nnetsh interface ipv6 show offload [name=]<string>\nnetsh interface ipv6 show potentialrouters [interface=]<string>\nnetsh interface ipv6 show prefixpolicies [store=]active|persistent\nnetsh interface ipv6 show privacy [store=]active|persistent\nnetsh interface ipv6 show route [level=]normal|verbose [store=]active|persistent\nnetsh interface ipv6 show siteprefixes\nnetsh interface ipv6 show slaacsecretkey [store=]active|persistent\nnetsh interface ipv6 show subinterfaces [interface=]<string> [subinterface=]<string> [level=]normal|verbose\n                                        [store=]active|persistent\nnetsh interface ipv6 show tcpstats [rr=]<integer>\nnetsh interface ipv6 show teredo\nnetsh interface ipv6 show tfofallback\nnetsh interface ipv6 show udpstats [rr=]<integer>\n\nnetsh interface isatap dump\nnetsh interface isatap set router [name=]<string>|default [state=]enabled|disabled|default [interval=]<integer>\nnetsh interface isatap set state [state=]enabled|disabled|default\nnetsh interface isatap show <router> <state>\n\nnetsh interface portproxy add v4tov4 [listenport=]<integer>|<servicename> [connectaddress=]<IPv4 address>|<hostname>\n                                     [connectport=]<integer>|<servicename> [listenaddress=]<IPv4 address>|<hostname>\n                                     [protocol=]tcp\nnetsh interface portproxy add v4tov6 [listenport=]<integer>|<servicename> [connectaddress=]<IPv6 address>|<hostname>\n                                     [connectport=]<integer>|<servicename> [listenaddress=]<IPv4 address>|<hostname>\n                                     [protocol=]tcp\nnetsh interface portproxy add v6tov4 [listenport=]<integer>|<servicename> [connectaddress=]<IPv4 address>|<hostname>\n                                     [connectport=]<integer>|<servicename> [listenaddress=]<IPv6 address>|<hostname>\n                                     [protocol=]tcp\nnetsh interface portproxy add v6tov6 [listenport=]<integer>|<servicename> [connectaddress=]<IPv6 address>|<hostname>\n                                     [connectport=]<integer>|<servicename> [listenaddress=]<IPv6 address>|<hostname>\n                                     [protocol=]tcp\nnetsh interface portproxy delete v4tov4 [listenport=]<integer>|<servicename> [listenaddress=]<IPv4 address>|<hostname>\n                                         [protocol=]tcp\nnetsh interface portproxy delete v4tov6 [listenport=]<integer>|<servicename> [listenaddress=]<IPv4 address>|<hostname>\n                                         [protocol=]tcp\nnetsh interface portproxy delete v6tov4 [listenport=]<integer>|<servicename> [listenaddress=]<IPv6 address>|<hostname>\n                                         [protocol=]tcp\nnetsh interface portproxy delete v6tov6 [listenport=]<integer>|<servicename> [listenaddress=]<IPv6 address>|<hostname>\n                                         [protocol=]tcp\nnetsh interface portproxy dump\nnetsh interface portproxy reset\nnetsh interface portproxy set v4tov4 [listenport=]<integer>|<servicename> [connectaddress=]<IPv4 address>|<hostname>\n                                     [connectport=]<integer>|<servicename> [listenaddress=]<IPv4 address>|<hostname>\n                                     [protocol=]tcp\nnetsh interface portproxy set v4tov6 [listenport=]<integer>|<servicename> [connectaddress=]<IPv6 address>|<hostname>\n                                     [connectport=]<integer>|<servicename> [listenaddress=]<IPv4 address>|<hostname>\n                                     [protocol=]tcp\nnetsh interface portproxy set v6tov4 [listenport=]<integer>|<servicename> [connectaddress=]<IPv4 address>|<hostname>\n                                     [connectport=]<integer>|<servicename> [listenaddress=]<IPv6 address>|<hostname>\n                                     [protocol=]tcp\nnetsh interface portproxy set v6tov6 [listenport=]<integer>|<servicename> [connectaddress=]<IPv6 address>|<hostname>\n                                     [connectport=]<integer>|<servicename> [listenaddress=]<IPv6 address>|<hostname>\n                                     [protocol=]tcp\nnetsh interface portproxy show all\nnetsh interface portproxy show <v4tov4> <v4tov6> <v6tov4> <v6tov6>\n\nnetsh interface set interface [name=]IfName [admin=]ENABLED|DISABLED [connect=]CONNECTED|DISCONNECTED [newname=]NewName\n\nnetsh interface show interface [name=]string\n\nnetsh interface tcp add supplementalport [template=]internet|datacenter|automatic|custom|compat [localport=]*|<integer>\n                                         [remoteport=]*|<integer>\nnetsh interface tcp add supplementalsubnet [template=]internet|datacenter|automatic|custom|compat [family=]ipv4|ipv6\n                                           [address=]<IPv4 or IPv6 address>/<prefix length>\nnetsh interface tcp delete supplementalport [localport=]*|<number> [remoteport=]*|<number>\nnetsh interface tcp delete supplementalsubnet [family=]ipv4|ipv6 [address=]<IPv4 or IPv6 address>/<prefix length>\nnetsh interface tcp dump\nnetsh interface tcp reload\nnetsh interface tcp rundown\nnetsh interface tcp set global [rss=]disabled|enabled|default\n                               [autotuninglevel=]disabled|highlyrestricted|restricted|normal|experimental\n                               [ecncapability=]disabled|enabled|default [timestamps=]disabled|enabled|default\n                               [initialrto=]<300-3000> [rsc=]disabled|enabled|default\n                               [nonsackrttresiliency=]disabled|enabled|default [maxsynretransmissions=]<2-8>\n                               [fastopen=]disabled|enabled|default [fastopenfallback=]disabled|enabled|default\n                               [hystart=]disabled|enabled|default [prr=]disabled|enabled|default\n                               [pacingprofile=]off|initialwindow|slowstart|always|default\nnetsh interface tcp set heuristics [wsh=]disabled|enabled|default [forcews=]disabled|enabled|default\nnetsh interface tcp set security [mpp=]disabled|enabled|default [startport=]<integer> [numberofports=]<integer>\n                                 [profiles=]disabled|enabled|default\nnetsh interface tcp set supplemental [template=]automatic|datacenter|internet|compat|custom [minrto=]<integer>\n                                     [icw=]<integer> [congestionprovider=]none|ctcp|dctcp|cubic|bbr2|default\n                                     [enablecwndrestart=]disabled|enabled|default [delayedacktimeout=]<integer>\n                                     [delayedackfrequency=]<integer> [rack=]disabled|enabled|default\n                                     [taillossprobe=]disabled|enabled|default\nnetsh interface tcp show global [store=]active|persistent\nnetsh interface tcp show heuristics [heuristics=]wsh|forcews\nnetsh interface tcp show rscstats [interface=]<string>\nnetsh interface tcp show security [store=]active|persistent\nnetsh interface tcp show supplemental [template=]automatic|datacenter|internet|compat|custom\nnetsh interface tcp show supplementalports [level=]normal|verbose\nnetsh interface tcp show supplementalsubnets [level=]normal|verbose\n\nnetsh interface teredo dump\nnetsh interface teredo set state [type]=disabled|client|enterpriseclient|natawareclient|server|default\n                                 [servername=]<hostname>|<IPv4 address>|default [refreshinterval=]<integer>|default\n                                 [clientport=]<integer>|default [servervirtualip=]<IPv4 address>|default\nnetsh interface teredo show state\n\nnetsh interface udp dump\nnetsh interface udp reset\nnetsh interface udp set global [uro=]disabled|enabled|default [uso=]disabled|enabled|default\nnetsh interface udp show global [store=]active|persistent",
+        "examples": [
+            "netsh interface 6to4 set interface name=MyInterface routing=enabled",
+            "netsh interface clat set global permit=enabled pref64fromdns=enabled pref64fromra=enabled",
+            "netsh interface httpstunnel add interface type=client url=\"https://tunnel.example.com\" state=enabled authmode=certificates",
+            "netsh interface httpstunnel set interface url=\"https://tunnel.example.com\" state=disabled authmode=none",
+            "netsh interface ipv4 add address name=\"Ethernet\" address=192.168.1.10 mask=255.255.255.0 type=unicast gateway=192.168.1.1 store=persistent",
+            "netsh interface ipv4 delete excludedportrange protocol=tcp startport=5000 numberofports=20 store=active",
+            "netsh interface ipv4 set address name=\"Wi-Fi\" source=dhcp",
+            "netsh interface ipv4 set address name=\"LAN1\" source=static address=10.0.0.2 mask=255.255.255.0 gateway=10.0.0.1 store=persistent",
+            "netsh interface ipv6 6to4 set routing routing=enabled sitelocals=enabled",
+            "netsh interface ipv6 add prefixpolicy prefix=2001:db8::/32 precedence=40 label=2 store=persistent",
+            "netsh interface ipv6 delete neighbors interface=\"Ethernet\" address=fe80::1 store=active",
+            "netsh interface ipv6 isatap set state state=enabled",
+            "netsh interface ipv6 set dnsservers name=\"Wi-Fi\" source=static address=2001:4860:4860::8888 register=both validate=yes",
+            "netsh interface ipv6 set interface interface=\"Ethernet\" forwarding=disabled advertise=enabled mtu=1400 store=persistent",
+            "netsh interface ipv6 set teredo type=client servername=teredo.example.com",
+            "netsh interface ipv6 show interfaces interface=\"Ethernet\" level=verbose",
+            "netsh interface isatap set router name=isatap.example.com state=enabled interval=30",
+            "netsh interface portproxy add v4tov4 listenport=8080 listenaddress=127.0.0.1 connectaddress=192.168.1.10 connectport=80 protocol=tcp",
+            "netsh interface portproxy deleted v6tov4 listenport=5000 listenaddress=2001:db8::1 protocol=tcp",
+            "netsh interface set interface name=\"Wi-Fi\" admin=DISABLED"
+        ]
+    },
+    "netsh advfirewall": {
+        "cmdlet": "`netsh advfirewall`",
+        "description": "The `netsh advfirewall` command configures and manages the Windows Firewall with Advanced Security utility. This tool allows administrators to configure firewall rules, security policies, and monitor various aspects of the firewall's behavior.",
+        "parameters": "netsh advfirewall consec | dump | export | firewall | help | import | mainmode | monitor | reset | set | show | ?\n\nnetsh advfirewall [consec | firewall | mainmode] <add> <delete> <dump> <help> <set> <show> <?>\n\nnetsh advfirewall [monitor] <delete> <dump> <help> <show> <?>\n\nnetsh advfirewall export <path\\filename>\nnetsh advfirewall import <path\\filename>\nnetsh advfirewall reset [export <path\\filename>]\n\nnetsh advfirewall set [allprofiles | currentprofile | domainprofile | privateprofile | publicprofile] state <on> <off> <notconfigured>\nnetsh advfirewall set firewallpolicy <blockinbound> <blockinboundalways> <allowinbound> <allowoutbound> <blockoutbound> <notconfigured>\nnetsh advfirewall set settings <localfirewallrules> <localconsecrules> <inboundusernotification> <remotemanagement> <unicastresponsetomulticast>\nnetsh advfirewall set logging <allowedconnections> <droppedconnections> <filename> <maxfilesize>\nnetsh advfirewall set global [statefulftp | statefulpptp] <enable> <disable> <notconfigured>\nnetsh advfirewall set global ipsec [strongcrlcheck <value>] [saidletimemin <value>] [defaultexemptions <value>] [ipsecthroughnat <value>] [authzcomputergrp <value>] [authzusergrp <value>]\nnetsh advfirewall set global mainmode [mmkeylifetime <value>] [mmsecmethods <value>] [mmforcedh <value>]\n\nnetsh advfirewall show [allprofiles | currentprofile | domainprofile | privateprofile | publicprofile] <state> <firewallpolicy> <settings> <logging>\nnetsh advfirewall show global <ipsec> <statefulftp> <statefulpptp> <mainmode> <categories>\nnetsh advfirewall show <store>",
+        "examples": [
+            "netsh advfirewall consec add rule name=\"RequireAuth\" endpoint1=any endpoint2=any action=requireinrequestout",
+            "netsh advfirewall consec add rule name=\"KerberosAuthRule\" endpoint1=any endpoint2=any action=requireinrequireout auth1=computerkerb",
+            "netsh advfirewall consec delete rule name=\"RuleName\"",
+            "netsh advfirewall dump > \"C:\\path\\to\\firewall_dump.txt\"",
+            "netsh advfirewall dump",
+            "netsh advfirewall dump | findstr \"State\"",
+            "netsh advfirewall export \"C:\\folder\\firewall_backup.wfw\"",
+            "netsh advfirewall firewall add rule name=\"Allow8080\" protocol=TCP dir=in localport=8080 action=allow",
+            "netsh advfirewall firewall add rule name=\"BlockOutIP\" protocol=TCP dir=out remoteip=192.168.1.100 action=block",
+            "netsh advfirewall firewall delete rule name=\"MyRule\"",
+            "netsh advfirewall firewall ?",
+            "netsh advfirewall firewall add rule ?",
+            "netsh advfirewall import \"C:\\folder\\firewall_config.wfw\"",
+            "netsh advfirewall mainmode add rule name=\"MyMainmodeRule\" auth1=computerkerb",
+            "netsh advfirewall mainmode show rule name=all",
+            "netsh advfirewall mainmode delete rule name=\"MyMainmodeRule\"",
+            "netsh advfirewall monitor show mmsa",
+            "netsh advfirewall monitor show firewall",
+            "netsh advfirewall reset",
+            "netsh advfirewall set currentprofile logging droppedconnections disable"
+        ]
+    },
+    "netsh wlan": {
+        "cmdlet": "`netsh wlan`",
+        "description": "The `netsh wlan` command enables administrators to configure, manage, and troubleshoot wireless networking on Windows. It offers subcommands for connecting to Wi-Fi networks, managing wireless profiles, filtering SSIDs, exporting settings, and diagnosing connectivity problems.",
+        "parameters": "netsh wlan [add | connect | delete | disconnect | dump | export | help | IHV | refresh | reportissues | set | show | start | stop | ?]\n\nnetsh wlan add filter [permission=]allow|block|denyall [ssid=]<string> [networktype=]infrastructure|adhoc\nnetsh wlan add profile [filename=]<string> [interface=]<string> [user=]all|current\n\nnetsh wlan connect [name=]<string> [ssid=]<string> [interface=]<string>\n\nnetsh wlan delete filter [permission=]allow|block|denyall [ssid=]<string> [networktype=]infrastructure|adhoc\nnetsh wlan delete profile [name=]<string> [[interface=]<string>]\n\nnetsh wlan disconnect [interface=]<string>\n\nnetsh wlan dump\n\nnetsh wlan export <hostednetworkprofile>\nnetsh wlan export profile [name=]<string> [folder=]<string> [[interface=]<string>] [key=<string>]\n\nnetsh wlan IHV <startlogging> <stoplogging>\n\nnetsh wlan refresh hostednetwork [data=]key\n\nnetsh wlan reportissues\n\nnetsh wlan set allowexplicitcreds [allow=]yes|no\nnetsh wlan set autoconfig [enabled=]yes|no [interface=]<string>\nnetsh wlan set blockednetworks [display=]show|hide\nnetsh wlan set blockperiod [value=]0-60\nnetsh wlan set createalluserprofile [enabled=]yes|no\nnetsh wlan set hostednetwork [mode=]allow|disallow [ssid=]<ssid> [key=]<passphrase> [keyUsage=]persistent|temporary\nnetsh wlan set profileorder [name=]<string> [interface=]<string> [priority=]<integer>\nnetsh wlan set profileparameter [name=]<string> [interface=]<string> [SSIDname=]<string> [ConnectionType=]ESS|IBSS\n                                [autoSwitch=yes|no] [ConnectionMode=auto|manual] [nonBroadcast=yes|no]\n                                [Randomization=]yes|no|daily [authentication=]open|shared|WPA|WPA2|WPAPSK|WPA2PSK\n                                [encryption=]none|WEP|TKIP|AES [keyType=]networkKey|passphrase [keyIndex=]1-4\n                                [keyMaterial=<string>] [PMKCacheMode=]yes|no [PMKCacheSize=]1-255 [PMKCacheTTL=300-86400]\n                                [preAuthMode=]yes|no [preAuthThrottle=]1-16 [FIPS=]yes|no [useOneX=]yes|no\n                                [authMode=]machineOrUser|machineOnly|userOnly|guest [ssoMode=]preLogon|postLogon|none\n                                [maxDelay=]1-120 [allowDialog=]yes|no [userVLAN=]yes|no [heldPeriod=]1-3600\n                                [AuthPeriod=1-3600] [StartPeriod=]1-3600 [maxStart=]1-100 [maxAuthFailures=]1-100\n                                [cacheUserData=]yes|no [cost=]default|unrestricted|fixed|variable\nnetsh wlan set profiletype [name=]<string> [profiletype=]all|current [interface=]<string>\nnetsh wlan set randomization [enabled=]yes|no [interface=]<string>\nnetsh wlan set tracing [mode=]yes|no|persistent\n\nnetsh wlan show all\nnetsh wlan show allowexplicitcreds\nnetsh wlan show autoconfig\nnetsh wlan show blockednetworks\nnetsh wlan show createalluserprofile\nnetsh wlan show drivers\nnetsh wlan show filters\nnetsh wlan show hostednetwork\nnetsh wlan show interfaces\nnetsh wlan show networks\nnetsh wlan show onlyUseGPProfilesforAllowedNetworks\nnetsh wlan show profiles\nnetsh wlan show randomization\nnetsh wlan show settings\nnetsh wlan show tracing\nnetsh wlan show wirelesscapabilities\nnetsh wlan show wlanreport\n\nnetsh wlan start hostednetwork\n\nnetsh wlan stop hostednetwork",
+        "examples": [
+            "netsh wlan add filter permission=allow ssid=\"MyNetwork\" networktype=infrastructure",
+            "netsh wlan connect name=CorpWiFi interface=\"Wi-Fi\"",
+            "netsh wlan disconnect interface=\"Wi-Fi\"",
+            "netsh wlan export profile name=\"CorpWiFi\" folder=\"C:\\WiFiProfiles\" key=clear",
+            "netsh wlan IHV startlogging",
+            "netsh wlan refresh hostednetwork data=MyKey",
+            "netsh wlan set profileparameter name=\"CorpWiFi\" interface=\"Wi-Fi\" SSIDname=\"CorpWiFi_5G\" ConnectionMode=auto",
+            "netsh wlan set profiletype name=\"CorpWiFi\" profiletype=all interface=\"Wi-Fi\"",
+            "netsh wlan set tracing mode=persistent"
+        ]
+    },
+    "netsh winsock": {
+        "cmdlet": "`netsh winsock`",
+        "description": "The `netsh winsock` command manages the Windows Sockets (Winsock) API, which is responsible for network communication between applications and network services.",
+        "parameters": "netsh winsock [audit | dump | help | remove | reset | set | show | ?]\n\nnetsh winsock audit trail\nnetsh winsock dump\nnetsh winsock remove provider <catalog id>\nnetsh winsock reset\nnetsh winsock set autotuning <on|off>\nnetsh winsock show <autotuning> <catalog>",
+        "examples": [
+            "netsh winsock audit trail",
+            "netsh winsock remove provider <catalog_id>",
+            "netsh winsock set autotuning on",
+            "netsh winsock show catalog"
+        ]
+    },
+    "net print": {
+        "cmdlet": "`net print`",
+        "description": "Displays information about a specified printer queue or a specified print job, or controls a specified print job.",
+        "parameters": "net print {\\\\<computername>\\<sharename> | \\\\<computername> <jobnumber> [/hold | /release | /delete]} [help]\n\nprinters at \\\\PRODUCTION\n    Name              Job #      Size      Status\n    -----------------------------\n    LASER Queue       3 jobs               *printer active*\n    USER1          84        93844      printing\n    USER2          85        12555      Waiting\n    USER3          86        10222      Waiting\n\nJob #            35\n    Status           Waiting\n    Size             3096\n    remark\n    Submitting user  USER2\n    Notify           USER2\n    Job data type\n    Job parameters\n    additional info\n\nnet print \\\\Production\\Dotmatrix\n\nnet print \\\\Production 35\n\nnet print \\\\Production 263 /hold\n\nnet print \\\\Production 263 /release",
+        "examples": [
+            "net print \\\\Production\\Dotmatrix",
+            "net print \\\\Production 35",
+            "net print \\\\Production 263 /hold",
+            "net print \\\\Production 263 /release"
+        ]
+    },
+    "net user": {
+        "cmdlet": "`net user`",
+        "description": "The `net user` command allows you to add, modify, or delete user accounts, and display detailed information about user accounts on a local computer or domain.",
+        "parameters": "net user [<UserName> {<Password> | *} [<Options>]] [/domain]\nnet user [<UserName> {<Password> | *} /add [<Options>] [/domain]]\nnet user [<UserName> [/delete] [/domain]]\nnet user username [/times:{times | all}]\nnet user username [/active: {yes | no}]",
+        "examples": [
+            "net user",
+            "net user tommyh",
+            "net user jays Cyk4^g3B /add /passwordreq:yes /times:monday-friday,8am-5pm /fullname:\"Jay Jamison\"",
+            "net user miked /time:M-F,08:00-17:00",
+            "net user miked /time:M-F,8AM-5PM",
+            "net user anibals /time:M,4AM-12PM;T,12PM-8PM;W-F,8AM-5PM"
+        ]
+    },
+    "gpresult": {
+        "cmdlet": "`gpresult`",
+        "description": "Displays the Resultant Set of Policy (RSoP) information for a remote user and computer. To use RSoP reporting for remotely targeted computers through the firewall, you must have firewall rules that enable inbound network traffic on the ports.",
+        "parameters": "gpresult [/s <system> [/u <username> [/p [<password>]]]] [/user [<targetdomain>\\]<targetuser>] [/scope {user | computer}] {/r | /v | /z | [/x | /h] <filename> [/f] | /?}\n\ngpresult /s srvmain /user maindom\\targetuser /scope user /r\n\ngpresult /s srvmain /user maindom\\targetuser /z > policy.txt\n\ngpresult /s srvmain /u maindom\\hiropln /p p@ssW23 /r",
+        "examples": [
+            "gpresult /s srvmain /user maindom\\targetuser /scope user /r",
+            "gpresult /s srvmain /user maindom\\targetuser /z > policy.txt",
+            "gpresult /s srvmain /u maindom\\hiropln /p p@ssW23 /r"
+        ]
+    },
+    "gpupdate": {
+        "cmdlet": "`gpupdate`",
+        "description": "Updates Group Policy settings.",
+        "parameters": "gpupdate [/target:{computer | user}] [/force] [/wait:<VALUE>] [/logoff] [/boot] [/sync] [/?]\n\ngpupdate /force",
+        "examples": [
+            "gpupdate /force"
+        ]
+    },
+    "secedit": {
+        "cmdlet": "`secedit`",
+        "description": "Configures and analyzes system security by comparing your current security configuration against specified security templates.",
+        "parameters": "secedit /analyze\nsecedit /configure\nsecedit /export\nsecedit /generaterollback\nsecedit /import\nsecedit /validate",
+        "examples": []
+    },
+    "auditpol": {
+        "cmdlet": "`auditpol`",
+        "description": "Displays information about and performs functions to manipulate audit policies, including:",
+        "parameters": "auditpol command [<sub-command><options>]",
+        "examples": []
+    },
+    "netdom": {
+        "cmdlet": "`netdom`",
+        "description": "`Netdom` is a command-line tool that enables administrators to manage Active Directory (AD) domains and trust relationships from the command line. It's available if you have the Active Directory Domain Services (AD DS) server role installed. It's also available if you install the AD DS tools that are part of the Remote Server Administration Tools (RSAT). To learn more, see [How to Administer Microsoft Windows Client and Server Computers Locally and Remotely](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee649281(v=ws.10)).",
+        "parameters": "netdom [ ADD | COMPUTERNAME | HELP | JOIN | MOVE | MOVENT4BDC | QUERY | REMOVE | RENAMECOMPUTER | RESET | RESETPWD | TRUST | VERIFY ]",
+        "examples": []
+    },
+    "setspn": {
+        "cmdlet": "`setspn`",
+        "description": "The `setspn` command line utility reads, modifies, and deletes the Service Principal Names (SPN) directory property for an Active Directory (AD) service account. You use SPNs to locate a target principal name for running a service. You can use `setspn` to view the current SPNs, reset the account's default SPNs, and add or delete supplemental SPNs. `Setspn` is available if you have the Active Directory Domain Services (AD DS) server role installed. `Setspn` must be ran through an elevated command prompt.",
+        "parameters": "setspn <modifiers switch> <accountname> [-R] [-S] [-D] [-L] [-C] [-U] [-Q] [-X] [-P] [-F] [-T] [-?] [/?]",
+        "examples": [
+            "setspn -L <accountname>",
+            "setspn -R <accountname>",
+            "setspn -U -S http/MyServer User01",
+            "setspn -S http/myserver.mydomain.com myDomain\\myServer",
+            "setspn -D http/myserver.mydomain.com myDomain\\myServer",
+            "setspn -T * -T contoso -X",
+            "setspn -T contoso -F -Q */MyServer"
+        ]
+    },
+    "reg": {
+        "cmdlet": "`reg`",
+        "description": "Performs operations on registry subkey information and values in registry entries.",
+        "parameters": "reg add\nreg compare\nreg copy\nreg delete\nreg export\nreg import\nreg load\nreg query\nreg restore\nreg save\nreg unload",
+        "examples": []
+    },
+    "regsvr32": {
+        "cmdlet": "`regsvr32`",
+        "description": "Registers .dll files as command components in the registry.",
+        "parameters": "regsvr32 [/u] [/s] [/n] [/i[:cmdline]] <Dllname>\n\nregsvr32 schmmgmt.dll",
+        "examples": [
+            "regsvr32 schmmgmt.dll"
+        ]
+    },
+    "setx": {
+        "cmdlet": "`setx`",
+        "description": "Creates or modifies environment variables in the user or system environment, without requiring programming or scripting. The **Setx** command also retrieves the values of registry keys and writes them to text files.",
+        "parameters": "setx [/s <computer> [/u [<domain>\\]<user name> [/p [<password>]]]] <variable> <value> [/m]\nsetx [/s <computer> [/u [<domain>\\]<user name> [/p [<password>]]]] <variable>] /k <path> [/m]\nsetx [/s <computer> [/u [<domain>\\]<user name> [/p [<password>]]]] /f <filename> {[<variable>] {/a <X>,<Y> | /r <X>,<Y> <String>} [/m] | /x} [/d <delimiters>]",
+        "examples": [
+            "setx MACHINE Brand1",
+            "setx MACHINE Brand1 Computer /m",
+            "setx MYPATH %PATH%",
+            "setx MYPATH ~PATH~",
+            "setx /s computer1 /u maindom\\hiropln /p p@ssW23 MACHINE Brand1",
+            "setx /s computer1 /u maindom\\hiropln /p p@ssW23 MYPATH %PATH%",
+            "setx TZONE /k HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Control\\TimeZoneInformation\\StandardName",
+            "setx /s computer1 /u maindom\\hiropln /p p@ssW23 TZONE /k HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Control\\TimeZoneInformation\\StandardName",
+            "setx BUILD /k HKEY_LOCAL_MACHINE\\Software\\Microsoft\\WindowsNT\\CurrentVersion\\CurrentBuildNumber /m",
+            "setx /s computer1 /u maindom\\hiropln /p p@ssW23  BUILD /k HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows NT\\CurrentVersion\\CurrentBuildNumber /m",
+            "setx /f ipconfig.out /x",
+            "setx IPADDR /f ipconfig.out /a 5,11",
+            "setx OCTET1 /f ipconfig.out /a 5,3 /d #$*.",
+            "setx IPGATEWAY /f ipconfig.out /r 0,7 Gateway",
+            "setx /s computer1 /u maindom\\hiropln /p p@ssW23 /f ipconfig.out /x"
+        ]
+    },
+    "path": {
+        "cmdlet": "`path`",
+        "description": "Sets the command path in the PATH environment variable, specifying the set of directories used to search for executable (.exe) files. If used without parameters, this command displays the current command path.",
+        "parameters": "path [[<drive>:]<path>[;...][;%PATH%]]\npath ;",
+        "examples": [
+            "path c:\\user\\taxes;b:\\user\\invest;b:\\bin"
+        ]
+    },
+    "prompt": {
+        "cmdlet": "`prompt`",
+        "description": "Changes the Cmd.exe command prompt, including displaying any text you want, such as the name of the current directory, the time and date, or the Microsoft Windows version number. If used without parameters, this command resets the command prompt to the default setting, which is the current drive letter and directory followed by the greater than symbol (**>**).",
+        "parameters": "prompt [<text>]\n\nprompt $d$s$s$t$_$g\n\nFri 06/01/2007  13:53:28.91\n\nprompt --$g\n\nprompt $p$g",
+        "examples": [
+            "prompt $d$s$s$t$_$g",
+            "Fri 06/01/2007  13:53:28.91",
+            "prompt --$g",
+            "prompt $p$g"
+        ]
+    },
+    "if": {
+        "cmdlet": "`if`",
+        "description": "Performs conditional processing in batch programs.",
+        "parameters": "if [not] ERRORLEVEL <number> <command> [else <expression>]\nif [not] <string1>==<string2> <command> [else <expression>]\nif [not] exist <filename> <command> [else <expression>]\n\nif [/i] <string1> <compareop> <string2> <command> [else <expression>]\nif cmdextversion <number> <command> [else <expression>]\nif defined <variable> <command> [else <expression>]\n\nif not exist product.dat echo Cannot find data file\n\n:begin\n@echo off\nformat a: /s\nif not errorlevel 1 goto end\necho An error occurred during formatting.\n:end\necho End of batch program.\n\nIF EXIST Product.dat (\ndel Product.dat\n) ELSE (\necho The Product.dat file is missing.\n)\n\n> IF EXIST Product.dat (del Product.dat) ELSE (echo The Product.dat file is missing.)\n>\n\ngoto answer%errorlevel%\n:answer1\necho The program returned error level 1\ngoto end\n:answer0\necho The program returned error level 0\ngoto end\n:end\necho Done!\n\nif %errorlevel% LEQ 1 goto okay",
+        "examples": [
+            "if not exist product.dat echo Cannot find data file",
+            ":begin\n@echo off\nformat a: /s\nif not errorlevel 1 goto end\necho An error occurred during formatting.\n:end\necho End of batch program.",
+            "IF EXIST Product.dat (\ndel Product.dat\n) ELSE (\necho The Product.dat file is missing.\n)",
+            "> IF EXIST Product.dat (del Product.dat) ELSE (echo The Product.dat file is missing.)\n>",
+            "goto answer%errorlevel%\n:answer1\necho The program returned error level 1\ngoto end\n:answer0\necho The program returned error level 0\ngoto end\n:end\necho Done!",
+            "if %errorlevel% LEQ 1 goto okay"
+        ]
+    },
+    "for": {
+        "cmdlet": "`for`",
+        "description": "Runs a specified command for each file, within a set of files.",
+        "parameters": "for {%% | %}<variable> in (<set>) do <command> [<commandlineoptions>]\n\n(*.doc)\n  (*.doc *.txt *.me)\n  (jan*.doc jan*.rpt feb*.doc feb*.rpt)\n  (ar??1991.* ap??1991.*)\n\nfor /d {%%|%}<variable> in (<set>) do <command> [<commandlineoptions>]\n\nfor /r [[<drive>:]<path>] {%%|%}<variable> in (<set>) do <command> [<commandlineoptions>]\n\nfor /l {%%|%}<variable> in (<start#>,<step#>,<end#>) do <command> [<commandlineoptions>]\n\nfor /f [<parsingkeywords>] {%%|%}<variable> in (<set>) do <command> [<commandlineoptions>]\n    for /f [<parsingkeywords>] {%%|%}<variable> in (<literalstring>) do <command> [<commandlineoptions>]\n    for /f [<parsingkeywords>] {%%|%}<variable> in ('<command>') do <command> [<commandlineoptions>]\n\nfor /f [usebackq <parsingkeywords>] {%%|%}<variable> in (<set>) do <command> [<commandlineoptions>]\n    for /f [usebackq <parsingkeywords>] {%%|%}<variable> in ('<literalstring>') do <command> [<commandlineoptions>]\n    for /f [usebackq <parsingkeywords>] {%%|%}<variable> in (`<command>`) do <command> [<commandlineoptions>]",
+        "examples": [
+            "for {%%|%}<variable> in (<set>) do <command> [<commandlineoptions>]",
+            "for %f in (*.doc *.txt) do type %f",
+            "for /f \"eol=; tokens=2,3* delims=,\" %i in (myfile.txt) do @echo %i %j %k",
+            "for /f \"usebackq delims==\" %i in (`set`) do @echo %i",
+            "for /r \"C:\\My Dir\\\" %A in (*.*) do echo %~ftzA"
+        ]
+    },
+    "goto": {
+        "cmdlet": "`goto`",
+        "description": "Directs cmd.exe to a labeled line in a batch program. Within a batch program, this command directs command processing to a line that is identified by a label. When the label is found, processing continues starting with the commands that begin on the next line.",
+        "parameters": "goto <label>",
+        "examples": [
+            "echo off\nformat a: /s\nif not errorlevel 1 goto end\necho An error occurred during formatting.\n:end\necho End of batch program."
+        ]
+    },
+    "call": {
+        "cmdlet": "`call`",
+        "description": "Calls one batch program from another without stopping the parent batch program. The **call** command accepts labels as the target of the call.",
+        "parameters": "call [drive:][path]<filename> [<batchparameters>]] \ncall [:<label> [<arguments>]]",
+        "examples": [
+            "call checknew",
+            "call checknew %1 %2"
+        ]
+    },
+    "shift": {
+        "cmdlet": "`shift`",
+        "description": "Changes the position of batch parameters in a batch file.",
+        "parameters": "shift [/n <N>]",
+        "examples": [
+            "@echo off\nrem MYCOPY.BAT copies any number of files\nrem to a directory.\nrem The command uses the following syntax:\nrem mycopy dir file1 file2 ...\nset todir=%1\n:getfile\nshift\nif \"%1\"==\"\" goto end\ncopy %1 %todir%\ngoto getfile\n:end\nset todir=\necho All done"
+        ]
+    },
+    "setlocal": {
+        "cmdlet": "`setlocal`",
+        "description": "Starts localization of environment variables in a batch file. Localization continues until a matching **endlocal** command is encountered or the end of the batch file is reached.",
+        "parameters": "setlocal [enableextensions | disableextensions] [enabledelayedexpansion | disabledelayedexpansion]\n\nverify other 2>nul\n    setlocal enableextensions\n    if errorlevel 1 echo Unable to enable extensions",
+        "examples": [
+            "rem *******Begin Comment**************\nrem This program starts the superapp batch program on the network,\nrem directs the output to a file, and displays the file\nrem in Notepad.\nrem *******End Comment**************\n@echo off\nsetlocal\npath=g:\\programs\\superapp;%path%\ncall superapp>c:\\superapp.out\nendlocal\nstart notepad c:\\superapp.out"
+        ]
+    },
+    "endlocal": {
+        "cmdlet": "`endlocal`",
+        "description": "Ends localization of environment changes in a batch file, and restores environment variables to their values before the corresponding **setlocal** command was run.",
+        "parameters": "endlocal\n\n@echo off\nsetlocal\npath=g:\\programs\\superapp;%path%\ncall superapp>c:\\superapp.out\nendlocal\nstart notepad c:\\superapp.out",
+        "examples": [
+            "@echo off\nsetlocal\npath=g:\\programs\\superapp;%path%\ncall superapp>c:\\superapp.out\nendlocal\nstart notepad c:\\superapp.out"
+        ]
+    },
+    "rem": {
+        "cmdlet": "`rem`",
+        "description": "Records comments in a script, batch, or config.sys file. If no comment is specified, **rem** adds vertical spacing.",
+        "parameters": "rem [<comment>]\n\n@echo off\nrem  This batch program formats and checks new disks.\nrem  It is named Checknew.bat.\nrem\nrem echo Insert new disk in Drive B.\npause\nformat b: /v chkdsk b:\n\nrem Set prompt to indicate current directory\nprompt $p$g\n\nrem The commands in this script set up 3 drives.\nrem The first drive is a primary partition and is\nrem assigned the letter D. The second and third drives\nrem are logical partitions, and are assigned letters\nrem E and F.\ncreate partition primary size=2048\nassign d:\ncreate partition extended\ncreate partition logical size=2048\nassign e:\ncreate partition logical\nassign f:\n\nRem/||(\n    The REM statement evaluates to success,\n    so these lines will never be executed.\n    Keep in mind that you will need to escape closing parentheses\n    within multi-line comment blocks like shown in this example. ^)\n  )",
+        "examples": [
+            "@echo off\nrem  This batch program formats and checks new disks.\nrem  It is named Checknew.bat.\nrem\nrem echo Insert new disk in Drive B.\npause\nformat b: /v chkdsk b:",
+            "rem Set prompt to indicate current directory\nprompt $p$g",
+            "rem The commands in this script set up 3 drives.\nrem The first drive is a primary partition and is\nrem assigned the letter D. The second and third drives\nrem are logical partitions, and are assigned letters\nrem E and F.\ncreate partition primary size=2048\nassign d:\ncreate partition extended\ncreate partition logical size=2048\nassign e:\ncreate partition logical\nassign f:",
+            "Rem/||(\n    The REM statement evaluates to success,\n    so these lines will never be executed.\n    Keep in mind that you will need to escape closing parentheses\n    within multi-line comment blocks like shown in this example. ^)\n  )"
+        ]
+    },
+    "exit": {
+        "cmdlet": "`exit`",
+        "description": "Exits the command interpreter or the current batch script.",
+        "parameters": "exit [/b] [<exitcode>]",
+        "examples": [
+            "exit"
+        ]
+    },
+    "pause": {
+        "cmdlet": "`pause`",
+        "description": "Suspends the processing of a batch program, displaying the prompt, `Press any key to continue . . .`",
+        "parameters": "pause",
+        "examples": [
+            "@echo off\n:Begin\ncopy a:*.*\necho Put a new disk into Drive A\npause\ngoto begin"
+        ]
+    },
+    "choice": {
+        "cmdlet": "`choice`",
+        "description": "Prompts the user to select one item from a list of single-character choices in a batch program, and then returns the index of the selected choice. If used without parameters, **choice** displays the default choices **Y** and **N**.",
+        "parameters": "choice [/c [<choice1><choice2><\u00e2\u20ac\u00a6>]] [/n] [/cs] [/t <timeout> /d <choice>] [/m <text>]",
+        "examples": [
+            "choice /c ync",
+            "[Y,N,C]?",
+            "choice /c ync /n /m \"Yes, No, or Continue?\"",
+            "choice /c ync /m \"Yes, No, or Continue\"",
+            "choice /c ync /t 5 /d n"
+        ]
+    },
+    "timeout": {
+        "cmdlet": "`timeout`",
+        "description": "Pauses the command processor for the specified number of seconds. This command is typically used in batch files.",
+        "parameters": "timeout /t <timeoutinseconds> [/nobreak]",
+        "examples": [
+            "timeout /t 10",
+            "timeout /t 100 /nobreak",
+            "timeout /t -1"
+        ]
+    },
+    "color": {
+        "cmdlet": "`color`",
+        "description": "Changes the foreground and background colors in the Command Prompt window for the current session. If used without parameters, **color** restores the default Command Prompt window foreground and background colors.",
+        "parameters": "color [attr]",
+        "examples": [
+            "color 84",
+            "color e"
+        ]
+    },
+    "title": {
+        "cmdlet": "`title`",
+        "description": "Creates a title for the Command Prompt window.",
+        "parameters": "title [<string>]",
+        "examples": [
+            "@echo off\ntitle Updating Files\ncopy \\\\server\\share\\*.xls c:\\users\\common\\*.xls\necho Files Updated.\ntitle Command Prompt"
+        ]
+    },
+    "mode": {
+        "cmdlet": "`mode`",
+        "description": "Displays system status, changes system settings, or reconfigures ports or devices. If used without parameters, **mode** displays all the controllable attributes of the console and the available COM devices.",
+        "parameters": "mode com<m>[:] [baud=<b>] [parity=<p>] [data=<d>] [stop=<s>] [to={on|off}] [xon={on|off}] [odsr={on|off}] [octs={on|off}] [dtr={on|off|hs}] [rts={on|off|hs|tg}] [idsr={on|off}]",
+        "examples": [
+            "mode com1 48,e,,,b\nmode lpt1=com1",
+            "mode lpt1"
+        ]
+    },
+    "chcp": {
+        "cmdlet": "`chcp`",
+        "description": "Changes the active console code page. If used without parameters, **chcp** displays the number of the active console code page.",
+        "parameters": "chcp [<nnn>]",
+        "examples": [
+            "chcp",
+            "chcp 850"
+        ]
+    },
+    "doskey": {
+        "cmdlet": "`doskey`",
+        "description": "Calls Doskey.exe, which recalls previously entered command-line commands, edits command lines, and creates macros.",
+        "parameters": "doskey [/reinstall] [/listsize=<size>] [/macros:[all | <exename>] [/history] [/insert | /overstrike] [/exename=<exename>] [/macrofile=<filename>] [<macroname>=[<text>]]\n\ndoskey /macros > macinit\n\ndoskey /macrofile=macinit\n\ndoskey /history> tmp.bat\n\ndoskey tx=cd temp$tdir/w $*\n\ndoskey mc=md $1$tcd $1\n\nmc books\n\ndoskey /exename=ftp.exe go=open 172.27.1.100$tmget *.TXT c:\\reports$tbye\n\ngo\n\ndoskey qf=format $1 /q /u\n\nqf a:\n\ndoskey vlist =",
+        "examples": [
+            "doskey /macros > macinit",
+            "doskey /macrofile=macinit",
+            "doskey /history> tmp.bat",
+            "doskey tx=cd temp$tdir/w $*",
+            "doskey mc=md $1$tcd $1",
+            "mc books",
+            "doskey /exename=ftp.exe go=open 172.27.1.100$tmget *.TXT c:\\reports$tbye",
+            "go",
+            "doskey qf=format $1 /q /u",
+            "qf a:",
+            "doskey vlist ="
+        ]
+    },
+    "echo": {
+        "cmdlet": "`echo`",
+        "description": "Displays messages or turns on or off the command echoing feature. If used without parameters, **echo** displays the current echo setting.",
+        "parameters": "echo [<message>]\necho [on | off]\n\necho\n\necho.\n\necho off\n\n@echo off\n\nif exist *.rpt echo The report has arrived.\n\n@echo off\nif not exist *.txt (\necho This directory contains no text files.\n) else (\n   echo This directory contains the following text file^(s^):\n   echo.\n   dir /b *.txt\n   )\n\nThis directory contains no text files.\n\nThis directory contains the following text file(s):\n\nFile1.txt\nFile2.txt\nFile3.txt",
+        "examples": [
+            "echo",
+            "echo.",
+            "echo off",
+            "@echo off",
+            "if exist *.rpt echo The report has arrived.",
+            "@echo off\nif not exist *.txt (\necho This directory contains no text files.\n) else (\n   echo This directory contains the following text file^(s^):\n   echo.\n   dir /b *.txt\n   )",
+            "This directory contains no text files.",
+            "This directory contains the following text file(s):\n\nFile1.txt\nFile2.txt\nFile3.txt"
+        ]
+    },
+    "eventcreate": {
+        "cmdlet": "`eventcreate`",
+        "description": "Enables an administrator to create a custom event in a specified event log.",
+        "parameters": "eventcreate [/s <computer> [/u <domain\\user> [/p <password>]] {[/l {APPLICATION|SYSTEM}]|[/so <srcname>]} /t {ERROR|WARNING|INFORMATION|SUCCESSAUDIT|FAILUREAUDIT} /id <eventID> /d <description>\n\neventcreate /t ERROR /id 100 /l application /d \"Create event in application log\"\neventcreate /t INFORMATION /id 1000 /d \"Create event in WinMgmt source\"\neventcreate /t ERROR /id 201 /so winword /l application /d \"New src Winword in application log\"\neventcreate /s server /t ERROR /id 100 /l application /d \"Remote machine without user credentials\"\neventcreate /s server /u user /p password /id 100 /t ERROR /l application /d \"Remote machine with user credentials\"\neventcreate /s server1 /s server2 /u user /p password /id 100 /t ERROR /d \"Creating events on Multiple remote machines\"\neventcreate /s server /u user /id 100 /t WARNING /d \"Remote machine with partial user credentials\"",
+        "examples": [
+            "eventcreate /t ERROR /id 100 /l application /d \"Create event in application log\"\neventcreate /t INFORMATION /id 1000 /d \"Create event in WinMgmt source\"\neventcreate /t ERROR /id 201 /so winword /l application /d \"New src Winword in application log\"\neventcreate /s server /t ERROR /id 100 /l application /d \"Remote machine without user credentials\"\neventcreate /s server /u user /p password /id 100 /t ERROR /l application /d \"Remote machine with user credentials\"\neventcreate /s server1 /s server2 /u user /p password /id 100 /t ERROR /d \"Creating events on Multiple remote machines\"\neventcreate /s server /u user /id 100 /t WARNING /d \"Remote machine with partial user credentials\""
+        ]
+    },
+    "wevtutil": {
+        "cmdlet": "`wevtutil`",
+        "description": "Enables you to retrieve information about event logs and publishers. You can also use this command to install and uninstall event manifests, to run queries, and to export, archive, and clear logs.",
+        "parameters": "wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]\n[{sl | set-log} <Logname> [/e:<Enabled>] [/i:<Isolation>] [/lfn:<Logpath>] [/rt:<Retention>] [/ab:<Auto>] [/ms:<MaxSize>] [/l:<Level>] [/k:<Keywords>] [/ca:<Channel>] [/c:<Config>]]\n[{ep | enum-publishers}]\n[{gp | get-publisher} <Publishername> [/ge:<Metadata>] [/gm:<Message>] [/f:<Format>]] \n[{im | install-manifest} <Manifest>] [/rf:<Path>] [/mf:<Path>] [/pf:<Path>] \n[{um | uninstall-manifest} <Manifest>] [{qe | query-events} <Path> [/lf:<Logfile>] [/sq:<Structquery>] [/q:<Query>] [/bm:<Bookmark>] [/sbm:<Savebm>] [/rd:<Direction>] [/f:<Format>] [/l:<Locale>] [/c:<Count>] [/e:<Element>]]\n[{gli | get-loginfo} <Logname> [/lf:<Logfile>]]\n[{epl | export-log} <Path> <Exportfile> [/lf:<Logfile>] [/sq:<Structquery>] [/q:<Query>] [/ow:<Overwrite>]]\n[{al | archive-log} <Logpath> [/l:<Locale>]]\n[{cl | clear-log} <Logname> [/bu:<Backup>]] [/r:<Remote>] [/u:<Username>] [/p:<Password>] [/a:<Auth>] [/uni:<Unicode>]",
+        "examples": [
+            "wevtutil el",
+            "wevtutil gl System /f:xml",
+            "wevtutil sl /c:config.xml",
+            "wevtutil gp Microsoft-Windows-Eventlog /ge:true",
+            "wevtutil im myManifest.xml",
+            "wevtutil um myManifest.xml",
+            "wevtutil qe Application /c:3 /rd:true /f:text",
+            "wevtutil gli Application",
+            "wevtutil epl System C:\\backup\\system0506.evtx",
+            "wevtutil cl Application /bu:C:\\admin\\backups\\a10306.evtx",
+            "wevtutil archive-log \"C:\\backup\\Application.evtx\" /locale:en-us"
+        ]
+    },
+    "logman": {
+        "cmdlet": "`logman`",
+        "description": "Creates and manages Event Trace Session and Performance logs and supports many functions of Performance Monitor from the command line.",
+        "parameters": "logman [create | query | start | stop | delete| update | import | export | /?] [options]",
+        "examples": []
+    },
+    "typeperf": {
+        "cmdlet": "`typeperf`",
+        "description": "The **typeperf** command writes performance data to the command window or to a log file. To stop **typeperf**, press CTRL+C.",
+        "parameters": "typeperf <counter [counter ...]> [options]\ntypeperf -cf <filename> [options]\ntypeperf -q [object] [options]\ntypeperf -qx [object] [options]",
+        "examples": [
+            "typeperf \\Processor(_Total)\\% Processor Time",
+            "typeperf -cf counters.txt -si 5 -sc 50 -f TSV -o domain2.tsv",
+            "typeperf -qx PhysicalDisk -o counters.txt"
+        ]
+    },
+    "perfmon": {
+        "cmdlet": "`perfmon`",
+        "description": "Start Windows Reliability and Performance Monitor in a specific standalone mode.",
+        "parameters": "perfmon </res|report|rel|sys>",
+        "examples": []
+    },
+    "sfc": {
+        "cmdlet": "`sfc`",
+        "description": "Scans and verifies the integrity of all protected system files and replaces incorrect versions with correct versions. If this command discovers that a protected file has been overwritten, it retrieves the correct version of the file from the **systemroot\\\\** folder, and then replaces the incorrect file.",
+        "parameters": "sfc [/scannow] [/verifyonly] [/scanfile=<file>] [/verifyfile=<file>] [/offwindir=<offline windows directory> /offbootdir=<offline boot directory> /offlogfile=<log file path>]",
+        "examples": [
+            "sfc /verifyfile=c:\\windows\\system32\\kernel32.dll",
+            "sfc /scanfile=D:\\windows\\system32\\kernel32.dll /offbootdir=D:\\ /offwindir=d:\\windows"
+        ]
+    },
+    "bcdedit": {
+        "cmdlet": "`bcdedit`",
+        "description": "Boot Configuration Data (BCD) files provide a store that is used to describe boot applications and boot application settings. The objects and elements in the store effectively replace Boot.ini.",
+        "parameters": "bcdedit /command [<argument1>] [<argument2>] ...",
+        "examples": []
+    },
+    "bcdboot": {
+        "cmdlet": "`bcdboot`",
+        "description": "Enables you to quickly set up a system partition, or to repair the boot environment located on the system partition. The system partition is set up by copying a simple set of Boot Configuration Data (BCD) files to an existing empty partition.",
+        "parameters": "bcdboot <source> [/l] [/s]",
+        "examples": []
+    },
+    "shutdown": {
+        "cmdlet": "`shutdown`",
+        "description": "Enables you to shut down or restart local or remote computers, one at a time.",
+        "parameters": "shutdown [/i | /l | /s | /sg | /r | /g | /a | /p | /h | /e | /o] [/hybrid] [/fw] [/f] [/m \\\\computer][/t xxx][/d [p|u:]xx:yy [/c \"comment\"]]",
+        "examples": [
+            "shutdown /r /t 60 /c \"Reconfiguring myapp.exe\" /f /d p:4:1",
+            "shutdown.exe /s /t 600 /d p:0:0 /e /c \"Scheduled maintenance\"",
+            "shutdown /r /m \\\\myremoteserver /t 60 /c \"Reconfiguring myapp.exe\" /f /d p:4:1",
+            "shutdown /r /t 300 /e /c \"Security Update\" /m \\\\myremoteserver",
+            "shutdown /a"
+        ]
+    },
+    "print": {
+        "cmdlet": "`print`",
+        "description": "Sends a text file to a printer. A file can print in the background if you send it to a printer connected to a serial or parallel port on the local computer.",
+        "parameters": "print [/d:<printername>] [<drive>:][<path>]<filename>[ ...]\n\nprint /d:lpt2 report.txt\n\nprint /d:\\\\copyroom\\printer1 c:\\accounting\\report.txt",
+        "examples": [
+            "print /d:lpt2 report.txt",
+            "print /d:\\\\copyroom\\printer1 c:\\accounting\\report.txt"
+        ]
+    },
+    "expand": {
+        "cmdlet": "`expand`",
+        "description": "Expands one or more compressed files. You can also use this command to retrieve compressed files from distribution disks.",
+        "parameters": "expand [-r] <source> <destination>\nexpand -r <source> [<destination>]\nexpand -i <source> [<destination>]\nexpand -d <source>.cab [-f:<files>]\nexpand <source>.cab -f:<files> <destination>",
+        "examples": []
+    },
+    "makecab": {
+        "cmdlet": "`makecab`",
+        "description": "Package existing files into a cabinet (.cab) file.",
+        "parameters": "makecab [/v[n]] [/d var=<value> ...] [/l <dir>] <source> [<destination>]\nmakecab [/v[<n>]] [/d var=<value> ...] /f <directives_file> [...]",
+        "examples": []
+    },
+    "date": {
+        "cmdlet": "`date`",
+        "description": "Displays or sets the system date. If used without parameters, **date** displays the current system date setting and prompts you to enter a new date.",
+        "parameters": "date [/t | <month-day-year>]",
+        "examples": [
+            "date /t",
+            "date 08.03.2007\ndate 08-03-07\ndate 8/3/07",
+            "date"
+        ]
+    },
+    "time": {
+        "cmdlet": "`time`",
+        "description": "Displays or sets the system time. If used without parameters, **time** displays the current system time and prompts you to enter a new time.",
+        "parameters": "time [/t | [<HH>[:<MM>[:<SS>]] [am|pm]]]",
+        "examples": [
+            "time /t",
+            "time 17:30:00\ntime 5:30 pm",
+            "The current time is: 17:33:31.35\nEnter the new time:"
+        ]
+    },
+    "tzutil": {
+        "cmdlet": "`tzutil`",
+        "description": "Displays the Windows Time Zone utility.",
+        "parameters": "tzutil [/?] [/g] [/s <timezoneID>[_dstoff]] [/l]",
+        "examples": [
+            "tzutil /g",
+            "tzutil /s \"Pacific Standard time\"",
+            "tzutil /s \"Pacific Standard time_dstoff\""
+        ]
+    },
+    "certutil": {
+        "cmdlet": "`certutil`",
+        "description": "Certutil.exe is a command-line program installed as part of Certificate Services. You can use certutil.exe to display certification authority (CA) configuration information, configure Certificate Services, and back up and restore CA components. The program also verifies certificates, key pairs, and certificate chains.",
+        "parameters": "",
+        "examples": [
+            "certutil [options] -backup BackupDirectory [Incremental] [KeepLog]",
+            "[-f] [-config Machine\\CAName] [-p Password] [-ProtectTo SAMNameAndSIDList]",
+            "certutil [options] -backupdb BackupDirectory [Incremental] [KeepLog]",
+            "[-f] [-config Machine\\CAName]",
+            "certutil [options] -backupkey BackupDirectory",
+            "[-f] [-config Machine\\CAName] [-p password] [-ProtectTo SAMNameAndSIDList] [-t Timeout]",
+            "certutil [options] -restore BackupDirectory",
+            "[-f] [-config Machine\\CAName] [-p password]",
+            "certutil [options] -restoredb BackupDirectory",
+            "[-f] [-config Machine\\CAName]",
+            "certutil [options] -restorekey BackupDirectory | PFXFile",
+            "[-f] [-config Machine\\CAName] [-p password]",
+            "certutil [options] -exportPFX [CertificateStoreName] CertId PFXFile [Modifiers]",
+            "certutil [options] -importPFX [CertificateStoreName] PFXFile [Modifiers]",
+            "[-f] [-Enterprise] [-user] [-GroupPolicy] [-Silent] [-p Password] [-csp Provider]",
+            "certutil [options] -dynamicfilelist",
+            "[-config Machine\\CAName]",
+            "certutil [options] -databaselocations",
+            "[-config Machine\\CAName]",
+            "certutil [options] -hashfile InFile [HashAlgorithm]"
+        ]
+    },
+    "certreq": {
+        "cmdlet": "`certreq`",
+        "description": "The certreq command can be used to request certificates from a certification authority (CA), to retrieve a response to a previous request from a CA, to create a new request from an .inf file, to accept and install a response to a request, to construct a cross-certification or qualified subordination request from an existing CA certificate or request, and to sign a cross-certification or qualified subordination request.",
+        "parameters": "certreq [-submit] [options] [requestfilein [certfileout [certchainfileout [fullresponsefileOut]]]]\ncertreq -retrieve [options] requestid [certfileout [certchainfileout [fullresponsefileOut]]]\ncertreq -new [options] [policyfilein [requestfileout]]\ncertreq -accept [options] [certchainfilein | fullresponsefilein | certfilein]\ncertreq -sign [options] [requestfilein [requestfileout]]\ncertreq -enroll [options] templatename\ncertreq -enroll -cert certId [options] renew [reusekeys]",
+        "examples": [
+            "certreq -submit certrequest.req certnew.cer certnew.pfx",
+            "certreq -retrieve 20 MyCertificate.cer",
+            "[newrequest]\n; At least one value must be set in this section\nsubject = CN=W2K8-BO-DC.contoso2.com",
+            "[NewRequest]\nSubject = CN=<FQDN of computer you are creating the certificate>\nExportable = TRUE\nKeyLength = 2048\nKeySpec = 1\nKeyUsage = 0xf0\nMachineKeySet = TRUE\n[RequestAttributes]\nCertificateTemplate=WebServer\n[Extensions]\nOID = 1.3.6.1.5.5.7.3.1\nOID = 1.3.6.1.5.5.7.3.2",
+            "certreq -new requestconfig.inf certrequest.req",
+            "[Version]\nSignature=$Windows NT$\n\n[Strings]\nszOID_ENHANCED_KEY_USAGE = 2.5.29.37\nszOID_PKIX_KP_SERVER_AUTH = 1.3.6.1.5.5.7.3.1\nszOID_PKIX_KP_CLIENT_AUTH = 1.3.6.1.5.5.7.3.2\n\n[NewRequest]\nSubject = CN=TestSelfSignedCert\nRequesttype = Cert\n\n[Extensions]\n%szOID_ENHANCED_KEY_USAGE%={text}%szOID_PKIX_KP_SERVER_AUTH%,\n_continue_ = %szOID_PKIX_KP_CLIENT_AUTH%",
+            "[Version]\nSignature=$Windows NT$\n \n[Strings]\nszOID_ENHANCED_KEY_USAGE = 2.5.29.37\nszOID_PKIX_KP_SERVER_AUTH = 1.3.6.1.5.5.7.3.1\nszOID_PKIX_KP_CLIENT_AUTH = 1.3.6.1.5.5.7.3.2\n\n[NewRequest]\nSubject = CN=TestSelfSignedCert\nRequesttype = Cert\n\n[Extensions]\n2.5.29.17 = \"{text}\"\n_continue_ = \"DNS=example.com&\"\n_continue_ = \"DNS=www.example.com&\"\n_continue_ = \"IP Address=192.168.1.1\"",
+            "certreq -accept certnew.cer",
+            "certreq -policy certsrv.req policy.inf newcertsrv.req",
+            "certreq -new policyfile.inf myrequest.req\ncertreq -sign myrequest.req myrequest.req\ncertreq -submit myrequest_sign.req myrequest_cert.cer",
+            "certreq -enroll -machine -policyserver * WebServer",
+            "certreq -enroll -machine -cert 61 2d 3c fe 00 00 00 00 00 05 renew"
+        ]
+    },
+    "klist": {
+        "cmdlet": "`klist`",
+        "description": "Displays a list of currently cached Kerberos tickets.",
+        "parameters": "klist [-lh <logonID.highpart>] [-li <logonID.lowpart>] tickets | tgt | purge | sessions | kcd_cache | get | add_bind | query_bind | purge_bind\n\nklist\n\nklist -li 0x3e7\n\nklist tgt\n\nklist purge\n\nklist purge -li 0x3e7\n\nklist sessions\n\nklist kcd_cache\n\nklist get host/%computername%\n\nklist add_bind CONTOSO KDC.CONTOSO.COM\n\nklist add_bind CONTOSO.COM KDC.CONTOSO.COM\n\nklist query_bind\n\nklist purge_bind",
+        "examples": [
+            "klist",
+            "klist -li 0x3e7",
+            "klist tgt",
+            "klist purge",
+            "klist purge -li 0x3e7",
+            "klist sessions",
+            "klist kcd_cache",
+            "klist get host/%computername%",
+            "klist add_bind CONTOSO KDC.CONTOSO.COM",
+            "klist add_bind CONTOSO.COM KDC.CONTOSO.COM",
+            "klist query_bind",
+            "klist purge_bind"
+        ]
+    },
+    "bitsadmin": {
+        "cmdlet": "`bitsadmin`",
+        "description": "Bitsadmin is a command-line tool used to create, download or upload jobs, and to monitor their progress. The bitsadmin tool uses switches to identify the work to perform. You can call `bitsadmin /?` or `bitsadmin /help` to get a list of switches.",
+        "parameters": "",
+        "examples": []
+    },
+    "help": {
+        "cmdlet": "`help`",
+        "description": "Displays a list of the available commands or detailed help information on a specified command. If used without parameters, **help** lists and briefly describes every system command.",
+        "parameters": "help [<command>]\n\nhelp robocopy\n\nhelp\n\nhelp create partition primary",
+        "examples": [
+            "help robocopy",
+            "help",
+            "help create partition primary"
+        ]
+    },
+    "where": {
+        "cmdlet": "`where`",
+        "description": "Displays the location of files that match the given search pattern.",
+        "parameters": "where [/r <Dir>] [/q] [/f] [/t] [$<ENV>:|<Path>:]<Pattern>[ ...]",
+        "examples": [
+            "where /r c:\\ test",
+            "where $public:*.*",
+            "where /r \\\\computer1\\c notepad.*"
+        ]
+    },
+    "assoc": {
+        "cmdlet": "`assoc`",
+        "description": "Displays or modifies file name extension associations. If used without parameters, **assoc** displays a list of all the current file name extension associations.",
+        "parameters": "assoc [<.[ext]>[=[<filetype>]]]",
+        "examples": [
+            "assoc .txt",
+            "assoc .bak=",
+            "assoc | more",
+            "assoc>assoc.txt",
+            "assoc .log=txtfile",
+            "assoc .=txtfile"
+        ]
+    },
+    "ftype": {
+        "cmdlet": "`ftype`",
+        "description": "Displays or modifies file types that are used in file name extension associations. If used without an assignment operator (=), this command displays the current open command string for the specified file type. If used without parameters, this command displays the file types that have open command strings defined.",
+        "parameters": "ftype [<filetype>[=[<opencommandstring>]]]\n\nftype\n\nftype txtfile\n\nftype example=\n\nassoc .pl=PerlScript\nftype PerlScript=perl.exe %1 %*\n\nset PATHEXT=.pl;%PATHEXT%",
+        "examples": [
+            "ftype",
+            "ftype txtfile",
+            "ftype example=",
+            "assoc .pl=PerlScript\nftype PerlScript=perl.exe %1 %*",
+            "set PATHEXT=.pl;%PATHEXT%"
+        ]
+    },
+    "wmic": {
+        "cmdlet": "`wmic`",
+        "description": "Displays WMI information inside an interactive command shell.",
+        "parameters": "wmic </parameter>",
+        "examples": [
+            "wmic context",
+            "NAMESPACE    : root\\cimv2\nROLE         : root\\cli\nNODE(S)      : BOBENTERPRISE\nIMPLEVEL     : IMPERSONATE\n[AUTHORITY   : N/A]\nAUTHLEVEL    : PKTPRIVACY\nLOCALE       : ms_409\nPRIVILEGES   : ENABLE\nTRACE        : OFF\nRECORD       : N/A\nINTERACTIVE  : OFF\nFAILFAST     : OFF\nOUTPUT       : STDOUT\nAPPEND       : STDOUT\nUSER         : N/A\nAGGREGATE    : ON",
+            "wmic logicaldisk",
+            "Access                    Description        InstallDate                   PowerManagementSupported   StatusInfo\nAvailability              DeviceID           LastErrorCode                 ProviderName               SupportsDiskQuotas\nBlockSize                 DriveType          MaximumComponentLength        Purpose                    SupportsFileBasedCompression\nCaption                   ErrorCleared       MediaType                     QuotasDisabled             SystemCreationClassName\nCompressed                ErrorDescription   Name                          QuotasIncomplete           SystemName\nConfigManagerErrorCode    ErrorMethodology   NumberOfBlocks                QuotasRebuilding           VolumeDirty\nConfigManagerUserConfig   FileSystem         PNPDeviceID                   Size                       VolumeName\nCreationClassName         FreeSpace          PowerManagementCapabilities   Status                     VolumeSerialNumber\n\n0   C:   FALSE   Win32_LogicalDisk   Local Fixed Disk   C:   3   NTFS   543237451776   255   12   C:                                                                                                                                              1021771247616   FALSE   TRUE   Win32_ComputerSystem   <TheDeviceName>   <TheVolumeName>   0011AABB",
+            "wmic logicaldisk get name",
+            "Name\nC:",
+            "wmic /locale:ms_409"
+        ]
+    },
+    "powershell": {
+        "cmdlet": "`powershell`",
+        "description": "Windows PowerShell is a task-based command-line shell and scripting language designed especially for system administration. Built on the .NET Framework, Windows PowerShell helps IT professionals and power users control and automate the administration of the Windows operating system and applications that run on Windows.",
+        "parameters": "",
+        "examples": []
+    },
+    "pnputil": {
+        "cmdlet": "`pnputil`",
+        "description": "Pnputil.exe is a command line utility that you can use to manage the driver store. You can use this command to add driver packages, remove driver packages, and list driver packages that are in the store.",
+        "parameters": "pnputil.exe [-f | -i] [ -? | -a | -d | -e ] <INF name>\n\npnputil.exe -a a:\\usbcam\\USBCAM.INF\n\npnputil.exe -a c:\\drivers\\*.inf\n\npnputil.exe -i -a a:\\usbcam\\USBCAM.INF\n\npnputil.exe -e\n\npnputil.exe -d oem0.inf",
+        "examples": [
+            "pnputil.exe -a a:\\usbcam\\USBCAM.INF",
+            "pnputil.exe -a c:\\drivers\\*.inf",
+            "pnputil.exe -i -a a:\\usbcam\\USBCAM.INF",
+            "pnputil.exe -e",
+            "pnputil.exe -d oem0.inf"
+        ]
+    },
+    "mmc": {
+        "cmdlet": "`mmc`",
+        "description": "Using mmc command-line options, you can open a specific **mmc** console, open **mmc** in author mode, or specify that the 32-bit or 64-bit version of **mmc** is opened.",
+        "parameters": "mmc <path>\\<filename>.msc [/a] [/64] [/32]",
+        "examples": []
+    }
+}

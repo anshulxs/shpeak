@@ -1,0 +1,853 @@
+{
+  "Get-Date": {
+  "cmdlet": "Get-Date",
+  "description": "Gets the current date and time or a specified date and time.",
+  "example": "Get-Date"
+  },
+  "Get-Help": {
+    "cmdlet": "Get-Help",
+    "description": "Displays information about PowerShell commands and concepts.",
+    "example": "Get-Help Get-Process -Full"
+  },
+  "Get-EventLog": {
+    "cmdlet": "Get-EventLog",
+    "description": "Gets events from event logs on the local or remote computers.",
+    "example": "Get-EventLog -LogName System -Newest 10"
+  },
+  "Get-WinEvent": {
+    "cmdlet": "Get-WinEvent",
+    "description": "Gets events from event logs and event tracing log files.",
+    "example": "Get-WinEvent -LogName Application -MaxEvents 10"
+  },
+  "Get-ComputerInfo": {
+    "cmdlet": "Get-ComputerInfo",
+    "description": "Gets a consolidated object of system and operating system properties.",
+    "example": "Get-ComputerInfo"
+  },
+  "Test-Connection": {
+    "cmdlet": "Test-Connection",
+    "description": "Sends ICMP echo request packets to test network connectivity.",
+    "example": "Test-Connection google.com -Count 4"
+  },
+  "Test-Path": {
+    "cmdlet": "Test-Path",
+    "description": "Determines whether all elements of a path exist.",
+    "example": "Test-Path .\\config.json"
+  },
+  "Get-NetIPAddress": {
+    "cmdlet": "Get-NetIPAddress",
+    "description": "Gets IP address configuration information.",
+    "example": "Get-NetIPAddress"
+  },
+  "Get-NetAdapter": {
+    "cmdlet": "Get-NetAdapter",
+    "description": "Gets the basic network adapter properties.",
+    "example": "Get-NetAdapter"
+  },
+  "Get-LocalUser": {
+    "cmdlet": "Get-LocalUser",
+    "description": "Gets local user accounts.",
+    "example": "Get-LocalUser"
+  },
+  "Get-LocalGroup": {
+    "cmdlet": "Get-LocalGroup",
+    "description": "Gets local security groups.",
+    "example": "Get-LocalGroup"
+  },
+  "Restart-Service": {
+    "cmdlet": "Restart-Service",
+    "description": "Stops and then starts one or more services.",
+    "example": "Restart-Service wuauserv"
+  },
+  "Restart-Computer": {
+    "cmdlet": "Restart-Computer",
+    "description": "Restarts the operating system on local and remote computers.",
+    "example": "Restart-Computer"
+  },
+  "Stop-Service": {
+    "cmdlet": "Stop-Service",
+    "description": "Stops one or more running services.",
+    "example": "Stop-Service Spooler"
+  },
+  "Get-ExecutionPolicy": {
+    "cmdlet": "Get-ExecutionPolicy",
+    "description": "Gets the execution policies for the current session.",
+    "example": "Get-ExecutionPolicy -List"
+  },
+  "Set-ExecutionPolicy": {
+    "cmdlet": "Set-ExecutionPolicy",
+    "description": "Changes PowerShell execution policies.",
+    "example": "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser"
+  },
+  "Get-Random": {
+    "cmdlet": "Get-Random",
+    "description": "Gets a random number or selects objects randomly from a collection.",
+    "example": "Get-Random -Minimum 1 -Maximum 100"
+  },
+  "Select-String": {
+    "cmdlet": "Select-String",
+    "description": "Searches for text patterns in strings and files.",
+    "example": "Select-String -Path *.log -Pattern \"error\""
+  },
+  "Sort-Object": {
+    "cmdlet": "Sort-Object",
+    "description": "Sorts objects by property values.",
+    "example": "Get-Process | Sort-Object CPU -Descending"
+  },
+  "ConvertTo-Json": {
+    "cmdlet": "ConvertTo-Json",
+    "description": "Converts an object to a JSON-formatted string.",
+    "example": "Get-Process | Select-Object -First 1 | ConvertTo-Json"
+  },
+  "ConvertFrom-Json": {
+    "cmdlet": "ConvertFrom-Json",
+    "description": "Converts a JSON-formatted string to a custom object.",
+    "example": "Get-Content data.json | ConvertFrom-Json"
+  },
+  "Get-CimInstance": {
+    "cmdlet": "Get-CimInstance",
+    "description": "Gets CIM instances from a CIM server.",
+    "example": "Get-CimInstance Win32_OperatingSystem"
+  },
+  "Get-ADUser": {
+    "cmdlet": "Get-ADUser",
+    "description": "Gets one or more Active Directory users.",
+    "example": "Get-ADUser jsmith"
+  },
+  "Get-ADGroup": {
+    "cmdlet": "Get-ADGroup",
+    "description": "Gets one or more Active Directory groups.",
+    "example": "Get-ADGroup 'Domain Admins'"
+  },
+  "%": {
+    "cmdlet": "ForEach-Object",
+    "description": "Performs an operation against each item in a collection of input objects.",
+    "example": "1..5 | % { $_ * 2 }"
+  },
+  "?": {
+    "cmdlet": "Where-Object",
+    "description": "Selects objects from a collection based on their property values.",
+    "example": "Get-Process | ? { $_.CPU -gt 100 }"
+  },
+  "ac": {
+    "cmdlet": "Add-Content",
+    "description": "Appends content, such as words or data, to a file.",
+    "example": "ac -Path .\\log.txt -Value \"New entry\""
+  },
+  "asnp": {
+    "cmdlet": "Add-PSSnapIn",
+    "description": "Adds one or more Windows PowerShell snap-ins to the current session.",
+    "example": "asnp Microsoft.Exchange.Management.PowerShell.E2010"
+  },
+  "cat": {
+    "cmdlet": "Get-Content",
+    "description": "Gets the contents of a file.",
+    "example": "cat .\\notes.txt"
+  },
+  "cd": {
+    "cmdlet": "Set-Location",
+    "description": "Sets the current working location to a specified location.",
+    "example": "cd C:\\Users\\Public"
+  },
+  "chdir": {
+    "cmdlet": "Set-Location",
+    "description": "Sets the current working location to a specified location.",
+    "example": "chdir D:\\Projects"
+  },
+  "clc": {
+    "cmdlet": "Clear-Content",
+    "description": "Deletes the contents of an item, but does not delete the item.",
+    "example": "clc .\\log.txt"
+  },
+  "clear": {
+    "cmdlet": "Clear-Host",
+    "description": "Clears the display in the host program.",
+    "example": "clear"
+  },
+  "clhy": {
+    "cmdlet": "Clear-History",
+    "description": "Deletes entries from the command history.",
+    "example": "clhy"
+  },
+  "cli": {
+    "cmdlet": "Clear-Item",
+    "description": "Deletes the contents of an item, but does not delete the item.",
+    "example": "cli env:TEMP"
+  },
+  "clp": {
+    "cmdlet": "Clear-ItemProperty",
+    "description": "Deletes the value of a property but does not delete the property.",
+    "example": "clp -Path HKCU:\\Software\\MyApp -Name \"Setting\""
+  },
+  "cls": {
+    "cmdlet": "Clear-Host",
+    "description": "Clears the display in the host program.",
+    "example": "cls"
+  },
+  "clv": {
+    "cmdlet": "Clear-Variable",
+    "description": "Deletes the value of a variable.",
+    "example": "clv myVar"
+  },
+  "cnsn": {
+    "cmdlet": "Connect-PSSession",
+    "description": "Reconnects to disconnected sessions",
+    "example": "cnsn -ComputerName Server01"
+  },
+  "compare": {
+    "cmdlet": "Compare-Object",
+    "description": "Compares two sets of objects.",
+    "example": "compare (gc file1.txt) (gc file2.txt)"
+  },
+  "copy": {
+    "cmdlet": "Copy-Item",
+    "description": "Copies an item from one location to another.",
+    "example": "copy .\\file.txt .\\Backup\\"
+  },
+  "cp": {
+    "cmdlet": "Copy-Item",
+    "description": "Copies an item from one location to another.",
+    "example": "cp .\\file.txt D:\\Backup\\"
+  },
+  "cpi": {
+    "cmdlet": "Copy-Item",
+    "description": "Copies an item from one location to another.",
+    "example": "cpi .\\report.docx .\\Archive\\"
+  },
+  "cpp": {
+    "cmdlet": "Copy-ItemProperty",
+    "description": "Copies a property and value from a specified location to another location.",
+    "example": "cpp -Path HKCU:\\Software\\App -Name \"Version\" -Destination HKCU:\\Software\\AppBackup"
+  },
+  "curl": {
+    "cmdlet": "Invoke-WebRequest",
+    "description": "Gets content from a webpage on the Internet.",
+    "example": "curl https://example.com -OutFile page.html"
+  },
+  "cvpa": {
+    "cmdlet": "Convert-Path",
+    "description": "Converts a path from a Windows PowerShell path to a Windows PowerShell provider path.",
+    "example": "cvpa .\\Documents"
+  },
+  "dbp": {
+    "cmdlet": "Disable-PSBreakpoint",
+    "description": "Disables the breakpoints in the current console.",
+    "example": "dbp -Id 1"
+  },
+  "del": {
+    "cmdlet": "Remove-Item",
+    "description": "Deletes files and folders.",
+    "example": "del .\\temp.txt"
+  },
+  "diff": {
+    "cmdlet": "Compare-Object",
+    "description": "Compares two sets of objects.",
+    "example": "diff (gc old.txt) (gc new.txt)"
+  },
+  "dir": {
+    "cmdlet": "Get-ChildItem",
+    "description": "Gets the files and folders in a file system drive.",
+    "example": "dir C:\\Windows"
+  },
+  "dnsn": {
+    "cmdlet": "Disconnect-PSSession",
+    "description": "Disconnects from a session.",
+    "example": "dnsn -Session $s"
+  },
+  "ebp": {
+    "cmdlet": "Enable-PSBreakpoint",
+    "description": "Enables the breakpoints in the current console.",
+    "example": "ebp -Id 1"
+  },
+  "echo": {
+    "cmdlet": "Write-Output",
+    "description": "Sends the specified objects to the next command in the pipeline. If the command is the last command in the pipeline, the objects are displayed in the console.",
+    "example": "echo \"Hello, World!\""
+  },
+  "epal": {
+    "cmdlet": "Export-Alias",
+    "description": "Exports information about currently defined aliases to a file.",
+    "example": "epal -Path .\\aliases.csv"
+  },
+  "epcsv": {
+    "cmdlet": "Export-Csv",
+    "description": "Converts objects into a series of comma-separated (CSV) strings and saves the strings in a CSV file.",
+    "example": "gps | epcsv -Path .\\processes.csv"
+  },
+  "epsn": {
+    "cmdlet": "Export-PSSession",
+    "description": "Imports commands from another session and saves them in a Windows PowerShell module.",
+    "example": "epsn -Session $s -OutputModule MyModule"
+  },
+  "erase": {
+    "cmdlet": "Remove-Item",
+    "description": "Deletes files and folders.",
+    "example": "erase .\\oldfile.txt"
+  },
+  "etsn": {
+    "cmdlet": "Enter-PSSession",
+    "description": "Starts an interactive session with a remote computer.",
+    "example": "etsn -ComputerName Server01"
+  },
+  "exsn": {
+    "cmdlet": "Exit-PSSession",
+    "description": "Ends an interactive session with a remote computer.",
+    "example": "exsn"
+  },
+  "fc": {
+    "cmdlet": "Format-Custom",
+    "description": "Uses a customized view to format the output.",
+    "example": "gps | fc"
+  },
+  "fl": {
+    "cmdlet": "Format-List",
+    "description": "Formats the output as a list of properties in which each property appears on a new line.",
+    "example": "gci | fl"
+  },
+  "foreach": {
+    "cmdlet": "ForEach-Object",
+    "description": "Performs an operation against each item in a collection of input objects.",
+    "example": "1..5 | foreach { $_ * 2 }"
+  },
+  "ft": {
+    "cmdlet": "Format-Table",
+    "description": "Formats the output as a table.",
+    "example": "gps | ft -AutoSize"
+  },
+  "fw": {
+    "cmdlet": "Format-Wide",
+    "description": "Formats objects as a wide table that displays only one property of each object.",
+    "example": "gci | fw"
+  },
+  "gal": {
+    "cmdlet": "Get-Alias",
+    "description": "Gets the aliases for the current session.",
+    "example": "gal ls"
+  },
+  "gbp": {
+    "cmdlet": "Get-PSBreakpoint",
+    "description": "Gets the breakpoints that are set in the current session.",
+    "example": "gbp"
+  },
+  "gc": {
+    "cmdlet": "Get-Content",
+    "description": "Gets the contents of a file.",
+    "example": "gc .\\notes.txt"
+  },
+  "gci": {
+    "cmdlet": "Get-ChildItem",
+    "description": "Gets the files and folders in a file system drive.",
+    "example": "gci C:\\Users"
+  },
+  "gcm": {
+    "cmdlet": "Get-Command",
+    "description": "Gets all commands.",
+    "example": "gcm Get-*"
+  },
+  "gcs": {
+    "cmdlet": "Get-PSCallStack",
+    "description": "Displays the current call stack.",
+    "example": "gcs"
+  },
+  "gdr": {
+    "cmdlet": "Get-PSDrive",
+    "description": "Gets drives in the current session.",
+    "example": "gdr"
+  },
+  "ghy": {
+    "cmdlet": "Get-History",
+    "description": "Gets a list of the commands entered during the current session.",
+    "example": "ghy"
+  },
+  "gi": {
+    "cmdlet": "Get-Item",
+    "description": "Gets files and folders.",
+    "example": "gi .\\file.txt"
+  },
+  "gjb": {
+    "cmdlet": "Get-Job",
+    "description": "Gets Windows PowerShell background jobs that are running in the current session.",
+    "example": "gjb"
+  },
+  "gl": {
+    "cmdlet": "Get-Location",
+    "description": "Gets information about the current working location or a location stack.",
+    "example": "gl"
+  },
+  "gm": {
+    "cmdlet": "Get-Member",
+    "description": "Gets the properties and methods of objects.",
+    "example": "gps | gm"
+  },
+  "gmo": {
+    "cmdlet": "Get-Module",
+    "description": "Gets the modules that have been imported or that can be imported into the current session.",
+    "example": "gmo -ListAvailable"
+  },
+  "gp": {
+    "cmdlet": "Get-ItemProperty",
+    "description": "Gets the properties of a specified item.",
+    "example": "gp HKCU:\\Software\\MyApp"
+  },
+  "gps": {
+    "cmdlet": "Get-Process",
+    "description": "Gets the processes that are running on the local computer or a remote computer.",
+    "example": "gps notepad"
+  },
+  "group": {
+    "cmdlet": "Group-Object",
+    "description": "Groups objects that contain the same value for specified properties.",
+    "example": "gps | group Company"
+  },
+  "gsn": {
+    "cmdlet": "Get-PSSession",
+    "description": "Gets the Windows PowerShell sessions on local and remote computers.",
+    "example": "gsn"
+  },
+  "gsnp": {
+    "cmdlet": "Get-PSSnapIn",
+    "description": "Gets the Windows PowerShell snap-ins on the computer.",
+    "example": "gsnp"
+  },
+  "gsv": {
+    "cmdlet": "Get-Service",
+    "description": "Gets the services on a local or remote computer.",
+    "example": "gsv -Name \"wuauserv\""
+  },
+  "gu": {
+    "cmdlet": "Get-Unique",
+    "description": "Returns unique items from a sorted list.",
+    "example": "gc .\\file.txt | sort | gu"
+  },
+  "gv": {
+    "cmdlet": "Get-Variable",
+    "description": "Gets the variables in the current console.",
+    "example": "gv PSVersionTable"
+  },
+  "gwmi": {
+    "cmdlet": "Get-WmiObject",
+    "description": "Gets instances of Windows Management Instrumentation (WMI) classes or information about the available classes.",
+    "example": "gwmi Win32_OperatingSystem"
+  },
+  "h": {
+    "cmdlet": "Get-History",
+    "description": "Gets a list of the commands entered during the current session.",
+    "example": "h"
+  },
+  "history": {
+    "cmdlet": "Get-History",
+    "description": "Gets a list of the commands entered during the current session.",
+    "example": "history"
+  },
+  "icm": {
+    "cmdlet": "Invoke-Command",
+    "description": "Runs commands on local and remote computers.",
+    "example": "icm -ComputerName Server01 -ScriptBlock { Get-Process }"
+  },
+  "iex": {
+    "cmdlet": "Invoke-Expression",
+    "description": "Runs commands or expressions on the local computer.",
+    "example": "iex \"Get-Date\""
+  },
+  "ihy": {
+    "cmdlet": "Invoke-History",
+    "description": "Runs commands from the session history.",
+    "example": "ihy 3"
+  },
+  "ii": {
+    "cmdlet": "Invoke-Item",
+    "description": "Performs the default action on the specified item.",
+    "example": "ii .\\report.docx"
+  },
+  "ipal": {
+    "cmdlet": "Import-Alias",
+    "description": "Imports an alias list from a file.",
+    "example": "ipal .\\aliases.csv"
+  },
+  "ipcsv": {
+    "cmdlet": "Import-Csv",
+    "description": "Creates table-like custom objects from the items in a CSV file.",
+    "example": "ipcsv .\\data.csv"
+  },
+  "ipmo": {
+    "cmdlet": "Import-Module",
+    "description": "Adds modules to the current session.",
+    "example": "ipmo ActiveDirectory"
+  },
+  "ipsn": {
+    "cmdlet": "Import-PSSes\nsion",
+    "description": "Imports commands from another session into the current session.",
+    "example": "ipsn -Session $s"
+  },
+  "irm": {
+    "cmdlet": "Invoke-RestMethod",
+    "description": "Sends an HTTP or HTTPS request to a RESTful web service.",
+    "example": "irm https://api.github.com/repos/PowerShell/PowerShell"
+  },
+  "ise": {
+    "cmdlet": "powershell_ise.exe",
+    "description": "Explains how to use the PowerShell_ISE.exe command-line tool.",
+    "example": "ise .\\script.ps1"
+  },
+  "iwmi": {
+    "cmdlet": "Invoke-WMIMethod",
+    "description": "Calls Windows Management Instrumentation (WMI) methods.",
+    "example": "iwmi -Class Win32_Process -Name Create -ArgumentList \"notepad.exe\""
+  },
+  "iwr": {
+    "cmdlet": "Invoke-WebRequest",
+    "description": "Gets content from a web page on the Internet.",
+    "example": "iwr https://example.com"
+  },
+  "kill": {
+    "cmdlet": "Stop-Process",
+    "description": "Stops one or more running processes.",
+    "example": "kill -Id 1234"
+  },
+  "lp": {
+    "cmdlet": "Out-Printer",
+    "description": "Sends output to a printer.",
+    "example": "gc .\\report.txt | lp"
+  },
+  "ls": {
+    "cmdlet": "Get-ChildItem",
+    "description": "Gets the files and folders in a file system drive.",
+    "example": "ls C:\\Windows"
+  },
+  "man": {
+    "cmdlet": "help",
+    "description": "Displays information about Windows PowerShell commands and concepts.",
+    "example": "man Get-Process"
+  },
+  "md": {
+    "cmdlet": "mkdir",
+    "description": "Creates a new item.",
+    "example": "md NewFolder"
+  },
+  "measure": {
+    "cmdlet": "Measure-Object",
+    "description": "Calculates the numeric properties of objects, and the characters, words, and lines in string objects, such as files of text.",
+    "example": "gc .\\file.txt | measure -Line -Word -Character"
+  },
+  "mi": {
+    "cmdlet": "Move-Item",
+    "description": "Moves an item from one location to another.",
+    "example": "mi .\\file.txt .\\Archive\\"
+  },
+  "mount": {
+    "cmdlet": "New-PSDrive",
+    "description": "Creates temporary and persistent mapped network drives.",
+    "example": "mount -Name Z -PSProvider FileSystem -Root \\\\Server\\Share"
+  },
+  "move": {
+    "cmdlet": "Move-Item",
+    "description": "Moves an item from one location to another.",
+    "example": "move .\\file.txt D:\\Backup\\"
+  },
+  "mp": {
+    "cmdlet": "Move-ItemProperty",
+    "description": "Moves a property from one location to another.",
+    "example": "mp -Path HKCU:\\Software\\App -Name \"Setting\" -Destination HKCU:\\Software\\AppNew"
+  },
+  "mv": {
+    "cmdlet": "Move-Item",
+    "description": "Moves an item from one location to another.",
+    "example": "mv .\\report.docx .\\Archive\\"
+  },
+  "nal": {
+    "cmdlet": "New-Alias",
+    "description": "Creates a new alias.",
+    "example": "nal grep Select-String"
+  },
+  "ndr": {
+    "cmdlet": "New-PSDrive",
+    "description": "Creates temporary and persistent mapped network drives.",
+    "example": "ndr -Name Q -PSProvider FileSystem -Root D:\\Projects"
+  },
+  "ni": {
+    "cmdlet": "New-Item",
+    "description": "Creates a new item.",
+    "example": "ni .\\newfile.txt -ItemType File"
+  },
+  "nmo": {
+    "cmdlet": "New-Module",
+    "description": "Creates a new dynamic module that exists only in memory.",
+    "example": "nmo -ScriptBlock { function Hello { \"Hi!\" } }"
+  },
+  "npssc": {
+    "cmdlet": "New-PSSessionConfigurationFile",
+    "description": "Creates a file that defines a session configuration.",
+    "example": "npssc -Path .\\config.pssc -SessionType RestrictedRemoteServer"
+  },
+  "nsn": {
+    "cmdlet": "New-PSSession",
+    "description": "Creates a persistent connection to a local or remote computer.",
+    "example": "nsn -ComputerName Server01"
+  },
+  "nv": {
+    "cmdlet": "New-Variable",
+    "description": "Creates a new variable.",
+    "example": "nv -Name myVar -Value 10"
+  },
+  "ogv": {
+    "cmdlet": "Out-GridView",
+    "description": "Sends output to an interactive table in a separate window.",
+    "example": "gps | ogv"
+  },
+  "oh": {
+    "cmdlet": "Out-Host",
+    "description": "Sends output to the command line.",
+    "example": "gps | oh"
+  },
+  "popd": {
+    "cmdlet": "Pop-Location",
+    "description": "Changes the current location to the location most recently pushed to the stack. You can pop the location from the default stack or from a stack that you create by using the Push-Location cmdlet.",
+    "example": "popd"
+  },
+  "ps": {
+    "cmdlet": "Get-Process",
+    "description": "Gets the processes that are running on the local computer or a remote computer.",
+    "example": "ps chrome"
+  },
+  "pushd": {
+    "cmdlet": "Push-Location",
+    "description": "Adds the current location to the top of a location stack.",
+    "example": "pushd C:\\Temp"
+  },
+  "pwd": {
+    "cmdlet": "Get-Location",
+    "description": "Gets information about the current working location or a location stack.",
+    "example": "pwd"
+  },
+  "r": {
+    "cmdlet": "Invoke-History",
+    "description": "Runs commands from the session history.",
+    "example": "r 5"
+  },
+  "rbp": {
+    "cmdlet": "Remove-PSBreakpoint",
+    "description": "Deletes breakpoints from the current console.",
+    "example": "rbp -Id 1"
+  },
+  "rcjb": {
+    "cmdlet": "Receive-Job",
+    "description": "Gets the results of the Windows PowerShell background jobs in the current session.",
+    "example": "rcjb -Id 1"
+  },
+  "rcsn": {
+    "cmdlet": "Receive-PSSession",
+    "description": "Gets results of commands in disconnected sessions.",
+    "example": "rcsn -Session $s"
+  },
+  "rd": {
+    "cmdlet": "Remove-Item",
+    "description": "Deletes files and folders.",
+    "example": "rd .\\OldFolder -Recurse"
+  },
+  "rdr": {
+    "cmdlet": "Remove-PSDrive",
+    "description": "Deletes temporary Windows PowerShell drives and disconnects mapped network drives.",
+    "example": "rdr -Name Q"
+  },
+  "ren": {
+    "cmdlet": "Rename-Item",
+    "description": "Renames an item in a Windows PowerShell provider namespace.",
+    "example": "ren .\\old.txt new.txt"
+  },
+  "ri": {
+    "cmdlet": "Remove-Item",
+    "description": "Deletes files and folders.",
+    "example": "ri .\\temp.txt"
+  },
+  "rjb": {
+    "cmdlet": "Remove-Job",
+    "description": "Deletes a Windows PowerShell background job.",
+    "example": "rjb -Id 1"
+  },
+  "rm": {
+    "cmdlet": "Remove-Item",
+    "description": "Deletes files and folders.",
+    "example": "rm .\\temp.txt"
+  },
+  "rmdir": {
+    "cmdlet": "Remove-Item",
+    "description": "Deletes files and folders.",
+    "example": "rmdir .\\OldFolder -Recurse"
+  },
+  "rmo": {
+    "cmdlet": "Remove-Module",
+    "description": "Removes modules from the current session.",
+    "example": "rmo MyModule"
+  },
+  "rni": {
+    "cmdlet": "Rename-Item",
+    "description": "Renames an item in a Windows PowerShell provider namespace.",
+    "example": "rni .\\old.txt new.txt"
+  },
+  "rnp": {
+    "cmdlet": "Rename-ItemProperty",
+    "description": "Renames a property of an item.",
+    "example": "rnp -Path HKCU:\\Software\\App -Name \"OldName\" -NewName \"NewName\""
+  },
+  "rp": {
+    "cmdlet": "Remove-ItemProperty",
+    "description": "Deletes the property and its value from an item.",
+    "example": "rp -Path HKCU:\\Software\\App -Name \"Setting\""
+  },
+  "rsn": {
+    "cmdlet": "Remove-PSSession",
+    "description": "Closes one or more Windows PowerShell sessions (PSSessions).",
+    "example": "rsn -Session $s"
+  },
+  "rsnp": {
+    "cmdlet": "Remove-PSSnapin",
+    "description": "Removes Windows PowerShell snap-ins from the current session.",
+    "example": "rsnp Microsoft.Exchange.Management.PowerShell.E2010"
+  },
+  "rujb": {
+    "cmdlet": "Resume-Job",
+    "description": "Restarts a suspended job",
+    "example": "rujb -Id 1"
+  },
+  "rv": {
+    "cmdlet": "Remove-Variable",
+    "description": "Deletes a variable and its value.",
+    "example": "rv myVar"
+  },
+  "rvpa": {
+    "cmdlet": "Resolve-Path",
+    "description": "Resolves the wildcard characters in a path, and displays the path contents.",
+    "example": "rvpa .\\*.txt"
+  },
+  "rwmi": {
+    "cmdlet": "Remove-WMIObject",
+    "description": "Deletes an instance of an existing Windows Management Instrumentation (WMI) class.",
+    "example": "rwmi -Class Win32_Process -Filter \"Name='notepad.exe'\""
+  },
+  "sajb": {
+    "cmdlet": "Start-Job",
+    "description": "Starts a Windows PowerShell background job.",
+    "example": "sajb -ScriptBlock { Get-Process }"
+  },
+  "sal": {
+    "cmdlet": "Set-Alias",
+    "description": "Creates or changes an alias (alternate name) for a cmdlet or other command element in the current Windows PowerShell session.",
+    "example": "sal np notepad.exe"
+  },
+  "saps": {
+    "cmdlet": "Start-Process",
+    "description": "Starts one or more processes on the local computer.",
+    "example": "saps notepad.exe"
+  },
+  "sasv": {
+    "cmdlet": "Start-Service",
+    "description": "Starts one or more stopped services.",
+    "example": "sasv -Name \"wuauserv\""
+  },
+  "sbp": {
+    "cmdlet": "Set-PSBreakpoint",
+    "description": "Sets a breakpoint on a line, command, or variable.",
+    "example": "sbp -Script .\\script.ps1 -Line 10"
+  },
+  "sc": {
+    "cmdlet": "Set-Content",
+    "description": "Replaces the contents of a file with contents that you specify.",
+    "example": "sc .\\file.txt -Value \"Hello\""
+  },
+  "select": {
+    "cmdlet": "Select-Object",
+    "description": "Selects objects or object properties.",
+    "example": "gps | select -First 5 Name, CPU"
+  },
+  "set": {
+    "cmdlet": "Set-Variable",
+    "description": "Sets the value of a variable. Creates the variable if one with the requested name does not exist.",
+    "example": "set -Name myVar -Value 10"
+  },
+  "shcm": {
+    "cmdlet": "Show-Command",
+    "description": "Creates Windows PowerShell commands in a graphical command window.",
+    "example": "shcm Get-EventLog"
+  },
+  "si": {
+    "cmdlet": "Set-Item",
+    "description": "Changes the value of an item to the valu",
+    "example": "si env:TEMP \"C:\\Temp\""
+  },
+  "Measure-Object": {
+    "cmdlet": "Measure-Object",
+    "description": "Calculates aggregate statistics such as count, sum, average, minimum, and maximum for object properties.",
+    "example": "Get-ChildItem *.log | Measure-Object Length -Sum"
+  },
+
+  "Group-Object": {
+    "cmdlet": "Group-Object",
+    "description": "Groups objects that have the same value for a specified property and provides counts for each group.",
+    "example": "Get-Service | Group-Object Status"
+  },
+
+  "Select-Object": {
+    "cmdlet": "Select-Object",
+    "description": "Selects specified properties of an object or a set of objects.",
+    "example": "Get-Item .\\report.txt | Select-Object Name, Length, LastWriteTime"
+  },
+
+  "Get-Unique": {
+    "cmdlet": "Get-Unique",
+    "description": "Returns unique items from a sorted list.",
+    "example": "Get-Service | Select-Object -ExpandProperty Status | Sort-Object | Get-Unique"
+  },
+
+  "Export-Csv": {
+    "cmdlet": "Export-Csv",
+    "description": "Exports objects as comma-separated values (CSV).",
+    "example": "Get-Service | Export-Csv services.csv -NoTypeInformation"
+  },
+
+  "Select-Object-ExpandProperty": {
+    "cmdlet": "Select-Object -ExpandProperty",
+    "description": "Extracts the value of a property instead of returning an object containing that property.",
+    "example": "Get-Service | Select-Object -ExpandProperty Status"
+  },
+
+  "Where-Object": {
+    "cmdlet": "Where-Object",
+    "description": "Filters objects based on property values.",
+    "example": "Get-Process | Where-Object CPU -gt 100"
+  },
+
+  "ForEach-Object": {
+    "cmdlet": "ForEach-Object",
+    "description": "Performs an operation on each object in a pipeline.",
+    "example": "Get-Process | ForEach-Object { $_.Name }"
+  },
+
+  "Get-Command": {
+    "cmdlet": "Get-Command",
+    "description": "Gets commands, cmdlets, functions, aliases, and applications available in the session.",
+    "example": "Get-Command -Verb Stop"
+  },
+
+  "New-Item": {
+    "cmdlet": "New-Item",
+    "description": "Creates a new item such as a file, directory, registry key, or other provider item.",
+    "example": "New-Item -ItemType Directory -Name logs"
+  },
+
+  "Remove-Item": {
+    "cmdlet": "Remove-Item",
+    "description": "Deletes files, folders, registry keys, and other provider items.",
+    "example": "Get-ChildItem *.log | Remove-Item"
+  },
+
+  "Rename-Item": {
+    "cmdlet": "Rename-Item",
+    "description": "Changes the name of an item.",
+    "example": "Rename-Item test.txt demo.txt"
+  },
+  "Get-Member": {
+    "cmdlet": "Get-Member",
+    "description": "Gets the properties and methods of objects.",
+    "example": "Get-Process | Get-Member"
+  }
+}
