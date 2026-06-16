@@ -2,7 +2,7 @@ from google import genai
 from google.genai import types
 from google.genai import errors
 from shpeak.utils import verbose_schema, load_cmds, load_ps_cmds, get_api_key
-from data.operators import CMD_OPERATORS, POWERSHELL_OPERATORS
+from shpeak.data.operators import CMD_OPERATORS, POWERSHELL_OPERATORS
 from shpeak.prompts import CMD_PROMPT, PS_PROMPT
 import json
 import re
