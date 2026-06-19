@@ -10,15 +10,6 @@ console = Console()
 CONFIG_DIR = Path.home() / ".config" / "shpeak"
 CONFIG_FILE = CONFIG_DIR / "config.env"
 
-def load_cmds():
-    with files("shpeak.data").joinpath("cmd_commands.json").open("r", encoding="utf-8") as f:
-        commands = json.load(f)
-    return commands
-
-def load_ps_cmds():
-    with files("shpeak.data").joinpath("powershell_commands.json").open("r", encoding="utf-8") as f:
-        commands = json.load(f)
-    return commands
 
 def verbose_schema(verbose: bool=False) -> str:
     schema = '''{

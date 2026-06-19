@@ -1,21 +1,19 @@
 from google import genai
 from google.genai import types
 from google.genai import errors
-from shpeak.utils import verbose_schema, load_cmds, load_ps_cmds, get_api_key
-from shpeak.data.operators import CMD_OPERATORS, POWERSHELL_OPERATORS
+from shpeak.utils import verbose_schema, get_api_key
 from shpeak.prompts import CMD_PROMPT, PS_PROMPT
 import json
 import re
 import sys
 
 def cmd_suggest(query: str, verbose: bool=False, test: bool=False):
-    time_limit = types.HttpOptions(timeout=60_000)
+    time_limit = types.HttpOptions(timeout=120_000)
     client = genai.Client(api_key=get_api_key(), http_options=time_limit)
-    cmd_cmds = load_cmds()
     schema = verbose_schema(verbose)
 
     config = types.GenerateContentConfig(
-            system_instruction=CMD_PROMPT.format(cmd_cmds=cmd_cmds, cmd_operators=CMD_OPERATORS, schema=schema),
+            system_instruction=CMD_PROMPT.format(schema=schema),
             temperature=0.0,
             )
     try:
@@ -54,14 +52,12 @@ def cmd_suggest(query: str, verbose: bool=False, test: bool=False):
         sys.exit(1)
     
 def ps_suggest(query: str, verbose: bool=False, test: bool=False):
-    time_limit = types.HttpOptions(timeout=60_000)
+    time_limit = types.HttpOptions(timeout=120_000)
     client = genai.Client(api_key=get_api_key(), http_options=time_limit)
-    client = genai.Client(api_key=get_api_key())
-    powershell_cmds = load_ps_cmds()
     schema = verbose_schema(verbose)
 
     config = types.GenerateContentConfig(
-            system_instruction=PS_PROMPT.format(powershell_commands=powershell_cmds, powershell_operators=POWERSHELL_OPERATORS, schema=schema),
+            system_instruction=PS_PROMPT.format(schema=schema),
             temperature=0.0,
             )
     try:
